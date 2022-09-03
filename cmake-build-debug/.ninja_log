@@ -1,0 +1,6 @@
+# ninja log v5
+1	281	1662208705401071641	CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/scanner.cpp.o	fc835abf251c806f
+0	176	1662208705293067836	CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/driver.cpp.o	22ef1bb6efa363
+0	11	1662234943834005116	build.ninja	776e5d05414ce8d6
+0	644	1662208606173509533	CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/main.cpp.o	f326f4d3d5eaf335
+1	383	1662208705501075165	CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Utils/Functions.cpp.o	c31a6c0717c9be4

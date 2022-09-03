@@ -1,0 +1,3 @@
+/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/cmake-build-debug/CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/cmake-build-debug/CMakeFiles/rebuild_cache.dir
