@@ -8,7 +8,7 @@
 
 using std::string;
 
-struct command {
+struct Command {
     string keyword;
     string size;
     string fit;
@@ -41,77 +41,73 @@ struct parameter {
     string valor;
 };
 
-struct command newCommand(string _type, std::vector<parameter> _params) {
-    struct command x;
-    x.keyword = _type;
+struct Command newCommand(string _type, std::vector<parameter> _params) {
+    struct Command parameter;
+    parameter.keyword = _type;
     for (size_t i = 0; i < _params.size(); i++) {
         if (_params[i].tipo == "__SIZE")
-            x.size = _params[i].valor;
+            parameter.size = _params[i].valor;
 
         else if (_params[i].tipo == "__FIT")
-            x.fit = _params[i].valor;
+            parameter.fit = _params[i].valor;
 
         else if (_params[i].tipo == "__UNIT")
-            x.unit = _params[i].valor;
+            parameter.unit = _params[i].valor;
 
         else if (_params[i].tipo == "__PATH")
-            x.path = _params[i].valor;
+            parameter.path = _params[i].valor;
 
         else if (_params[i].tipo == "__TYPE")
-            x.type = _params[i].valor;
+            parameter.type = _params[i].valor;
 
         else if (_params[i].tipo == "__DELETE")
-            x.delet = _params[i].valor;
+            parameter.delet = _params[i].valor;
 
         else if (_params[i].tipo == "__NAME")
-            x.name = _params[i].valor;
+            parameter.name = _params[i].valor;
 
         else if (_params[i].tipo == "__ADD")
-            x.add = _params[i].valor;
+            parameter.add = _params[i].valor;
 
         else if (_params[i].tipo == "__ID")
-            x.id = _params[i].valor;
+            parameter.id = _params[i].valor;
 
         else if (_params[i].tipo == "__FS")
-            x.fs = _params[i].valor;
+            parameter.fs = _params[i].valor;
 
         else if (_params[i].tipo == "__USER")
-            x.user = _params[i].valor;
+            parameter.user = _params[i].valor;
 
         else if (_params[i].tipo == "__PWD")
-            x.pwd = _params[i].valor;
+            parameter.pwd = _params[i].valor;
 
         else if (_params[i].tipo == "__GRP")
-            x.grp = _params[i].valor;
+            parameter.grp = _params[i].valor;
 
         else if (_params[i].tipo == "__RUTA")
-            x.ruta = _params[i].valor;
+            parameter.ruta = _params[i].valor;
 
         else if (_params[i].tipo == "__ROOT")
-            x.root = _params[i].valor;
+            parameter.root = _params[i].valor;
 
         else if (_params[i].tipo == "__UGO")
-            x.ugo = _params[i].valor;
+            parameter.ugo = _params[i].valor;
 
         else if (_params[i].tipo == "__R")
-            x.r = _params[i].valor;
+            parameter.r = _params[i].valor;
 
         else if (_params[i].tipo == "__CONT")
-            x.cont = _params[i].valor;
-
-        else if (_params[i].tipo == "__STDIN")
-            x._stdin = _params[i].valor;
-
+            parameter.cont = _params[i].valor;
         else if (_params[i].tipo == "__FILEN")
-            x.filen.push_back(_params[i].valor);
+            parameter.filen.push_back(_params[i].valor);
 
         else if (_params[i].tipo == "__DEST")
-            x.dest = _params[i].valor;
+            parameter.dest = _params[i].valor;
 
         else
             std::cout << "Parámetro no válido: " + _params[i].valor << std::endl;
     }
-    return x;
+    return parameter;
 }
 
 #endif

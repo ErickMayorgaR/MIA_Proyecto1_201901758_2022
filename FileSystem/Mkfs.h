@@ -1,12 +1,24 @@
-//
-// Created by erick on 3/09/22.
-//
 
 #ifndef MIA_PROYECTO1_201901758_2S2022_MKFS_H
 #define MIA_PROYECTO1_201901758_2S2022_MKFS_H
 
 
+#include <string>
+#include <mntent.h>
+#include "../Utils/Structures.h"
+
 class Mkfs {
+public:
+    Mkfs(std::string id, std::string type, std::string fs);
+
+    std::string id;
+    std::string _type;
+    std::string _fs;
+    int fs;
+    char type;
+
+    void executeMkfs();
+    void crearSistemaArchivos(ParticionesMontadas _mounted);
 
 };
 

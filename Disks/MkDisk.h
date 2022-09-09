@@ -6,13 +6,21 @@
 
 class MkDisk{
 public:
-    MkDisk(std::string path, int size, char fit, char unit);
+    MkDisk(std::string path, std::string size, std::string fit, std::string unit);
 
 
-    int size;
+    std::string size;
     std::string path;
-    char fit;
-    char unit;
+    std::string fit;
+    std::string unit;
+
+    int _size;
+    char _fit;
+    char _unit;
+    std::string _path;
+
+    void executeDisk();
+    void createDisk();
 };
 
 

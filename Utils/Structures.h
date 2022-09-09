@@ -36,13 +36,13 @@ struct EBR {
 
 
 struct DiskId {
-    std::string _carnet = "38";
+    std::string _carnet = "58";
     int _number_id = 1;
     char _letter_id = 'A';
 };
 
 
-struct MOUNTED {
+struct ParticionesMontadas {
     std::string path;
     DiskId id;
     char type;
@@ -52,7 +52,7 @@ struct MOUNTED {
 
 
 static int number_id;
-static std::vector<MOUNTED> particiones_montadas;
+static std::vector<ParticionesMontadas> particiones_montadas;
 
 
 struct FolderReference {

@@ -29,7 +29,7 @@ class parser_driver;
 #include <vector>
 
 std::vector<parameter> parameters;
-struct command x;
+struct Command x;
 
 }
 %define api.token.prefix {TOK_}
@@ -59,7 +59,7 @@ struct command x;
 %token <std::string> PWD "_PWD"
 %token <std::string> GRP "_GRP"
 
-%token <std::string> TOUCH "_TOUCH"
+%token <std::string> MKFILE "_MKFILE"
 %token <std::string> CHOWN "_CHOWN"
 %token <std::string> CHMOD "_CHMOD"
 %token <std::string> CAT "_CAT"
@@ -163,7 +163,7 @@ ADMIN_USERS_GROUPS: "_login" PARAMS {x = newCommand("__LOGIN",parameters);}
 ;
 
 FILESYSTEM: "_CHMOD" PARAMS {x = newCommand("__CHMOD",parameters);}
-            | "_TOUCH" PARAMS {x = newCommand("__TOUCH",parameters);}
+            | "_MKFILE" PARAMS {x = newCommand("__MKFILE",parameters);}
             | "_CAT" PARAMS {x = newCommand("__CAT",parameters);}
             | "_RM" PARAMS {x = newCommand("__RM",parameters);}
             | "_EDIT" PARAMS {x = newCommand("__EDIT",parameters);}

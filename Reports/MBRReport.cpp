@@ -4,15 +4,43 @@
 #include "../Utils/Structures.h"
 #include "../Utils/Functions.h"
 #include "../Disks/DiskFunctions.h"
+#include "ReportFunctions.h"
+#include "MBRReport.h"
 
+MBRReport::MBRReport(ParticionesMontadas mounted) {
+    this->mounted = mounted;
 
-using std::string;
+}
 
+std::string MBRReport::getReport() {
+    std::string grafo = getBaseHeader();
+    FILE *_file = fopen(mounted.path.c_str(), "rb");
 
-string getDotMBR(MBR _mbr, string _path) {
-    string mbr_fecha_creacion = ctime(&_mbr.mbr_fecha_creacion);
-    string dot =
-            string("\"MBR Report\" [ margin=\"0.5\" label = <\n") +
+    MBR mbr;
+    fseek(_file, 0, SEEK_SET);
+    fread(&mbr, sizeof(MBR), 1, _file);
+    grafo += getDotMBR(mbr, mounted.path);
+
+    int index = existeExtendida(mbr);
+    if (index != -1) {
+        EBR ebr;
+        partition extendida = mbr.mbr_partition[index];
+        fseek(_file, extendida.part_start, SEEK_SET);
+        fread(&ebr, sizeof(EBR), 1, _file);
+        if (ebr.part_size != 0)
+            grafo += getDotEBR(ebr, 0, "\"MBR Report\"", "", _file);
+    }
+    grafo += "}";
+
+    fclose(_file);
+    _file = NULL;
+    return grafo;
+}
+
+std::string MBRReport::getDotMBR(MBR _mbr, std::string _path) {
+    std::string mbr_fecha_creacion = ctime(&_mbr.mbr_fecha_creacion);
+    std::string dot =
+            std::string("\"MBR Report\" [ margin=\"0.5\" label = <\n") +
             "<TABLE BGCOLOR=\"#48D1CC\" BORDER=\"2\" COLOR=\"BLACK\" CELLBORDER=\"1\" CELLSPACING=\"0\">\n" +
             "<TR>\n" +
             "<TD BGCOLOR=\"#d23939\" COLSPAN=\"2\">MBR REPORT</TD>\n" +
@@ -50,9 +78,9 @@ string getDotMBR(MBR _mbr, string _path) {
 
     for (int i = 0; i < 4; i++) {
         partition _particion = _mbr.mbr_partition[i];
-        if (_particion.part_status == '0') {
+        if (_particion.part_status == '1') {
             dot +=
-                    string("<TR>\n") +
+                    std::string("<TR>\n") +
                     "<TD ALIGN=\"left\">part_status_" + std::to_string(i + 1) + "</TD>\n" +
                     "<TD>" + _particion.part_status + "</TD>\n" +
                     "</TR>\n\n" +
@@ -87,12 +115,12 @@ string getDotMBR(MBR _mbr, string _path) {
     return dot;
 }
 
-string getDotEBR(EBR _ebr, int _index, string _node, string _dot, FILE *_file) {
+std::string MBRReport::getDotEBR(EBR _ebr, int _index, std::string _node, std::string _dot, FILE *_file) {
     _index++;
-    string new_node = "\"EBR_" + std::to_string(_index) + " Report\"";
+    std::string new_node = "\"EBR_" + std::to_string(_index) + " Report\"";
     _dot += _node + " -> " + new_node + "\n";
     _dot +=
-            string(new_node + " [ label = <\n") +
+            std::string(new_node + " [ label = <\n") +
             "<TABLE BGCOLOR=\"#48D1CC\" BORDER=\"2\" COLOR=\"BLACK\" CELLBORDER=\"1\" CELLSPACING=\"0\">\n" +
             "<TR>\n" +
             "<TD BGCOLOR=\"#d23939\" COLSPAN=\"2\">EBR_" + std::to_string(_index) + " REPORT</TD>\n" +
@@ -140,53 +168,3 @@ string getDotEBR(EBR _ebr, int _index, string _node, string _dot, FILE *_file) {
     }
     return _dot;
 }
-
-
-void generateReport() {
-    std::string syst = "dot -Tpng ../Report/report.dot -o ../Report/Reporte.png";
-    system(syst.c_str());
-    std::cout<<"Reporte Generado"<<std::endl;
-}
-
-
-void ReportMBR(std::string path) {
-    std::string graph = ""
-                        "digraph G {\n"
-                        "graph[bgcolor=\"#141D26\" margin=0]\n"
-                        "rankdir=\"TB\";\n"
-                        "node [shape=plaintext fontname= \"Ubuntu\" fontsize=\"14\"];\n"
-                        "edge [style=\"invis\"];\n\n";
-
-
-    path = buildPath(path);
-    FILE *_file = fopen(path.c_str(), "rb");
-
-    MBR mbr;
-    fseek(_file, 0, SEEK_SET);
-    fread(&mbr, sizeof(MBR), 1, _file);
-
-
-    graph += getDotMBR(mbr, path);
-
-    int index = existeExtendida(mbr);
-    if (index != -1) {
-        EBR ebr;
-        partition extendida = mbr.mbr_partition[index];
-        fseek(_file, extendida.part_start, SEEK_SET);
-        fread(&ebr, sizeof(EBR), 1, _file);
-        if (ebr.part_size != 0)
-            graph += getDotEBR(ebr, 0, "\"MBR Report\"", "", _file);
-    }
-    graph += "}";
-
-    fclose(_file);
-    _file = NULL;
-
-    std::ofstream MyFile("../Report/report.dot");
-    MyFile << graph;
-    MyFile.close();
-
-    generateReport();
-
-}
-

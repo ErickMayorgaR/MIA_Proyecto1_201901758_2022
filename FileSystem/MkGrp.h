@@ -1,13 +1,17 @@
-//
-// Created by erick on 3/09/22.
-//
 
 #ifndef MIA_PROYECTO1_201901758_2S2022_MKGRP_H
 #define MIA_PROYECTO1_201901758_2S2022_MKGRP_H
 
 
-class MkGrp {
+#include <string>
 
+class MkGrp {
+public:
+    MkGrp(std::string name);
+
+    std::string name;
+
+    void executeMkGrp();
 };
 
 

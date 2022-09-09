@@ -1,13 +1,17 @@
-//
-// Created by erick on 3/09/22.
-//
 
 #ifndef MIA_PROYECTO1_201901758_2S2022_RMUSR_H
 #define MIA_PROYECTO1_201901758_2S2022_RMUSR_H
 
 
-class RmUsr {
+#include <string>
 
+class RmUsr {
+public:
+    RmUsr(std::string name);
+
+    std::string name;
+
+    void executeRmUsr();
 };
 
 

@@ -24,7 +24,7 @@ struct User
     std::string nombre = "root";
     std::string contrasena = "123";
     bool logged_in = false;
-    MOUNTED mounted;
+    ParticionesMontadas mounted;
 };
 
 std::string getData(Group _group, User _user)

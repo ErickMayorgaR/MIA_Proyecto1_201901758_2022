@@ -6,8 +6,22 @@
 #define MIA_PROYECTO1_201901758_2S2022_REMOVE_H
 
 
-class Remove {
+#include <string>
 
+class Remove {
+public:
+    Remove(std::string path);
+
+    std::string path;
+
+
+    void executeRemove();
+
+    int toRemove(int _index_inode, int _seek_superbloque);
+
+    void deleteFile(std::string _path, std::string _name);
+
+    int rewriteInode(int _index_inode, int _seek_superbloque);
 };
 
 

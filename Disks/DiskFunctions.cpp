@@ -1,22 +1,20 @@
-//
-// Created by erick on 26/08/22.
-//
-
 #include "DiskFunctions.h"
 #include "../Utils/Structures.h"
 
 bool existLogicPartition(EBR _ebr, std::string _name, FILE *_file) {
-    if (_ebr.part_name == _name)
+    if (_ebr.part_name == _name) {
         return true;
+    }
     else if (_ebr.part_next != -1) {
         fseek(_file, _ebr.part_next, SEEK_SET);
         fread(&_ebr, sizeof(EBR), 1, _file);
         return existLogicPartition(_ebr, _name, _file);
-    } else
+    } else {
         return false;
+    }
 }
 
-char existPartition(MBR _mbr, std::string _name, FILE *_file) {
+char existPartition(MBR _mbr,std::string _name,FILE *_file) {
     for (int i = 0; i < 4; i++) {
         if (_mbr.mbr_partition[i].part_name == _name)
             return _mbr.mbr_partition[i].part_type;
@@ -24,7 +22,7 @@ char existPartition(MBR _mbr, std::string _name, FILE *_file) {
             EBR ebr_inicial;
             fseek(_file, _mbr.mbr_partition[i].part_start, SEEK_SET);
             fread(&ebr_inicial, sizeof(EBR), 1, _file);
-            if (existLogicPartition(ebr_inicial, _name, _file))
+            if (existLogicPartition(ebr_inicial,  _name, _file))
                 return 'L';
             else
                 continue;
@@ -134,5 +132,24 @@ int getLogicsSize(EBR _ebr, int _s, FILE *_file) {
         fread(&_ebr, sizeof(EBR), 1, _file);
         return getLogicsSize(_ebr, _s, _file);
     }
+}
+
+DiskId buildID(std::string _id) {
+    DiskId disk_id;
+    disk_id._carnet = _id.substr(0, 2);
+    disk_id._number_id = std::stoi(_id.substr(2, 1));
+    disk_id._letter_id = _id[_id.length() - 1];
+
+    return disk_id;
+}
+
+int existMountedID(DiskId _disk_id) {
+    for (int i = 0; i < particiones_montadas.size(); i++) {
+        MOUNTED mounted = particiones_montadas[i];
+        if (mounted.id._carnet == _disk_id._carnet && mounted.id._number_id == _disk_id._number_id &&
+            mounted.id._letter_id == _disk_id._letter_id)
+            return i;
+    }
+    return -1;
 }
 

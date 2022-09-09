@@ -6,8 +6,16 @@
 #define MIA_PROYECTO1_201901758_2S2022_CHGRP_H
 
 
-class Chgrp {
+#include <string>
 
+class Chgrp {
+public:
+    Chgrp(std::string user, std::string grp);
+
+    std::string user;
+    std::string grp;
+
+    void executeChgrp();
 };
 
 

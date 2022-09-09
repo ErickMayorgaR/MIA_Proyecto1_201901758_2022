@@ -6,6 +6,9 @@
 #include <cstdlib>
 #include <experimental/filesystem>
 #include "Functions.h"
+#include "Structures.h"
+#include "AdminStructure.h"
+
 
 
 namespace fs = std::experimental::filesystem;
@@ -140,4 +143,534 @@ time_t getCurrentTime() {
     std::time_t curr_time_t = std::chrono::system_clock::to_time_t(curr_time);
     return curr_time_t;
 }
+
+/*
+ *
+ *
+ * FileSystem
+ *
+ *
+ */
+
+int number_inodos(int _part_size, int _ext) {
+    switch (_ext) {
+        case 2:
+            return (int) floor(((_part_size - sizeof(Superbloque)) / (1 + 3 + sizeof(InodosTable) + 3 * 64)));
+        case 3:
+            return (int) floor(((_part_size - sizeof(Superbloque) - 6400) / (1 + 3 + sizeof(InodosTable) + 3 * 64)));
+        default:
+            return 0;
+    }
+}
+
+std::string ReadFile(int _index_inode, int _s_inode_start, int _s_block_start, std::string _path) {
+    FILE *file = fopen(_path.c_str(), "rb");
+    std::string content = "";
+    InodosTable inode_current;
+    fseek(file, _s_inode_start, SEEK_SET);
+    fseek(file, _index_inode * sizeof(InodosTable), SEEK_CUR);
+    fread(&inode_current, sizeof(InodosTable), 1, file);
+    for (int i = 0; i < 15; i++) //agregar indirectos
+    {
+        if (inode_current.i_block[i] != -1) {
+            ArchivosBlock src;
+            fseek(file, _s_block_start + inode_current.i_block[i] * 64, SEEK_SET);
+            fread(&src, 64, 1, file);
+            content += std::string(src.b_content);
+        }
+    }
+    fclose(file);
+    file = NULL;
+    return content;
+}
+
+bool fileExists(InodosTable _inode, std::string _filename, FILE *_file, int _start_blocks) {
+    CarpetasBlock file_block;
+    for (int i = 0; i < 15; i++) // falta indirectos
+    {
+        if (_inode.i_block[i] != -1) {
+            fseek(_file, _start_blocks, SEEK_SET);
+            fseek(_file, _inode.i_block[i] * 64, SEEK_CUR);
+            fread(&file_block, 64, 1, _file);
+            for (int j = 0; j < 4; j++) {
+                if (std::string(file_block.b_content[j].b_name) == _filename)
+                    return true;
+            }
+        }
+    }
+    return false;
+}
+
+FolderReference getFatherReference(FolderReference _fr, std::string _folder, FILE *_file, int _start_inodes,
+                                   int _start_blocks) {
+
+    InodosTable inode;
+    fseek(_file, _start_inodes, SEEK_SET);
+    fseek(_file, _fr.inode * sizeof(InodosTable), SEEK_CUR);
+    fread(&inode, sizeof(InodosTable), 1, _file);
+    CarpetasBlock folder_block;
+    for (int i = 0; i < 15; i++) // falta indirectos
+    {
+        if (inode.i_block[i] != -1) {
+            fseek(_file, _start_blocks, SEEK_SET);
+            fseek(_file, inode.i_block[i] * 64, SEEK_CUR);
+            fread(&folder_block, 64, 1, _file);
+            for (int j = 0; j < 4; j++) {
+                if (std::string(folder_block.b_content[j].b_name) == _folder) {
+                    _fr.inode = folder_block.b_content[j].b_inodo; // Inodo directo asociado
+                    fseek(_file, _start_inodes, SEEK_SET);
+                    fseek(_file, folder_block.b_content[j].b_inodo * sizeof(InodosTable), SEEK_CUR);
+                    fread(&inode, sizeof(InodosTable), 1, _file);
+                    for (int k = 0; k < 15; k++) // Se podría evitar este paso
+                    {
+                        if (inode.i_block[k] != -1) {
+                            fseek(_file, _start_blocks, SEEK_SET);
+                            fseek(_file, inode.i_block[k] * 64, SEEK_CUR);
+                            fread(&folder_block, 64, 1, _file);
+                            for (int l = 0; l < 4; l++) {
+                                if (folder_block.b_content[l].b_inodo == _fr.inode) {
+                                    _fr.block = inode.i_block[k]; // Bloque directo de carpeta asociado
+                                    return _fr;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    _fr.inode = -1;
+    return _fr;
+}
+
+
+int writeBlock(int _type, std::string _content, int _block_reference) {
+    FILE *file = fopen((_user_logged.mounted.path).c_str(), "rb+");
+    int start_byte_sb = startByteSuperBloque(_user_logged.mounted);
+    /* Lectura del superbloque */
+    Superbloque super_bloque;
+    fseek(file, start_byte_sb, SEEK_SET);
+    fread(&super_bloque, sizeof(Superbloque), 1, file);
+    /* Lectura del bitmap de bloques */
+    char bm_block[3 * super_bloque.s_inodes_count];
+    fseek(file, super_bloque.s_bm_block_start, SEEK_SET);
+    fread(&bm_block, 3 * super_bloque.s_inodes_count, 1, file);
+    /* Posicionarse en el espacio del bloque disponible */
+    int block_free = super_bloque.s_first_blo;
+    fseek(file, super_bloque.s_block_start, SEEK_SET);
+    fseek(file, block_free * 64, SEEK_CUR);
+    ArchivosBlock archivo;
+    ApuntadoresBlock apuntadores;
+    switch (_type) {
+        case 0:
+            strcpy(archivo.b_content, _content.c_str());
+            fwrite(&archivo, 64, 1, file);
+            break;
+    }
+    bm_block[block_free] = '1';
+    super_bloque.s_first_blo = block_free + 1;
+    super_bloque.s_free_blocks_count--;
+    fseek(file, start_byte_sb, SEEK_SET);
+    fwrite(&super_bloque, sizeof(Superbloque), 1, file);
+
+    fseek(file, super_bloque.s_bm_block_start, SEEK_SET);
+    fwrite(&bm_block, 3 * super_bloque.s_inodes_count, 1, file);
+
+    fclose(file);
+    file = NULL;
+    return block_free; // Retornamos el número de bloque creado
+}
+
+
+void UpdateInode(int _inode_index, int _block_written) {
+    FILE *file = fopen((_user_logged.mounted.path).c_str(), "rb+");
+    InodosTable _inode;
+    /* Lectura del superbloque */
+    Superbloque super_bloque;
+    fseek(file, startByteSuperBloque(_user_logged.mounted), SEEK_SET);
+    fread(&super_bloque, sizeof(Superbloque), 1, file);
+    /* Lectura del inodo */
+    fseek(file, super_bloque.s_inode_start, SEEK_SET);
+    fseek(file, _inode_index * sizeof(InodosTable), SEEK_CUR);
+    fread(&_inode, sizeof(InodosTable), 1, file);
+
+    bool updated = false;
+    for (int i = 0; i < 15 && !updated; i++) // falta indirectos
+    {
+        if (_inode.i_block[i] == -1) {
+            _inode.i_block[i] = _block_written;
+            _inode.i_mtime = getCurrentTime();
+            updated = true;
+            break;
+        }
+    }
+    if (!updated)
+        coutError("Error: no se encontró ningún bloque de inodo libre para guardar el contenido.", NULL);
+    /* Sobreescribir el inodo */
+    fseek(file, super_bloque.s_inode_start, SEEK_SET);
+    fseek(file, _inode_index * sizeof(InodosTable), SEEK_CUR);
+    fwrite(&_inode, sizeof(InodosTable), 1, file);
+    fclose(file);
+    file = NULL;
+}
+
+
+int startByteSuperBloque(ParticionesMontadas _mounted) {
+    int sb_start;
+    switch (_mounted.type) {
+        case 'P':
+            sb_start = _mounted.particion.part_start;
+            break;
+        case 'L':
+            sb_start = _mounted.logica.part_start;
+            break;
+        default:
+            break;
+    }
+    return sb_start;
+}
+
+
+char charFormat(std::string _format) {
+    char nformat = 'N';
+    transform(_format.begin(), _format.end(), _format.begin(), ::tolower);
+    if (_format == "fast")
+        nformat = 'R'; //rápida
+    else if (_format == "full" || _format == "")
+        nformat = 'C'; //completa
+    else
+        std::cout << "Error: parámetro -type no válido: " + std::to_string(nformat) << std::endl;
+    return nformat;
+}
+
+
+int _2_or_3fs(std::string _fs) {
+    int nfs = 2;
+    transform(_fs.begin(), _fs.end(), _fs.begin(), ::tolower);
+    if (_fs == "3fs")
+        nfs = 3; //ext3
+    return nfs;
+}
+
+
+std::vector<std::string> SplitPath(std::string _path) {
+    std::vector<std::string> spl;
+    size_t pos = 0;
+    std::string tmp;
+    // spl.push_back("/");
+    while ((pos = _path.find("/")) != std::string::npos) {
+        tmp = _path.substr(0, pos);
+        if (tmp != "")
+            spl.push_back(tmp);
+        _path.erase(0, pos + 1);
+    }
+    if (_path != "")
+        spl.push_back(_path);
+    return spl;
+}
+
+
+std::string GetAllFile(InodosTable _inode, int _s_block_start, std::string _path) {
+    FILE *_file = fopen(_path.c_str(), "rb");
+    std::string content = "";
+    for (int i = 0; i < 15; i++) //agregar indirectos
+    {
+        if (_inode.i_block[i] != -1) {
+            ArchivosBlock src;
+            fseek(_file, _s_block_start + _inode.i_block[i] * 64, SEEK_SET);
+            fread(&src, 64, 1, _file);
+            content += std::string(src.b_content);
+            // std::cout << _inode.i_block[i] << std::endl;
+        }
+    }
+    fclose(_file);
+    _file = NULL;
+    return content;
+}
+
+
+int ByteLastFileBlock(InodosTable _inode) {
+    for (int i = 0; i < 15; i++) //falta indirecto
+    {
+        if (_inode.i_block[i] == -1)
+            return _inode.i_block[i - 1] * 64;
+    }
+    return -1;
+}
+
+
+std::vector<std::string> Separate64Chars(std::string _content) {
+    std::vector<std::string> vector_s;
+    while (_content.length() >= 64) {
+        std::string tmp = _content.substr(0, 64);
+        vector_s.push_back(tmp);
+        _content = _content.substr(64);
+    }
+    if (_content.length() > 0)
+        vector_s.push_back(_content);
+    return vector_s;
+}
+
+
+void writeBlocks(std::string _content, int _number_inode) {
+    std::vector<std::string> chars = Separate64Chars(_content);
+    for (int i = 0; i < chars.size(); i++) // Por cada iteración crear un bloque de contenido
+    {
+        int block_written = writeBlock(0, chars[i], -1);
+        UpdateInode(_number_inode, block_written);
+    }
+}
+
+
+Group getGroupByName(std::string _name, InodosTable users_inode, int s_block_start, std::string _path) {
+
+    std::string content_file = GetAllFile(users_inode, s_block_start, _path);
+    Group group_tmp;
+    /* LEER LÍNEA POR LÍNEA EL ARCHIVO USERS.TXT */
+    std::istringstream f(content_file);
+    std::string line;
+    while (getline(f, line)) {
+        int count = 0;
+        for (int i = 0; (i = line.find(',', i)) != std::string::npos; i++)
+            count++;
+        switch (count) {
+            case 2:
+                group_tmp.GID = std::stoi(line.substr(0, line.find_first_of(',')));
+                line = line.substr(line.find_first_of(',') + 1);
+
+                group_tmp.tipo = line.substr(0, line.find_first_of(','))[0];
+                line = line.substr(line.find_first_of(',') + 1);
+
+                group_tmp.nombre = line.substr(0, line.find_first_of('\n'));
+
+                if (group_tmp.nombre == _name && group_tmp.GID != 0) {
+                    return group_tmp;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    return group_tmp;
+}
+
+
+User getUserByName(std::string _name, int _index_inode, int _s_inode_start, int _s_block_start, std::string _path) {
+
+    std::string content_file = ReadFile(_index_inode, _s_inode_start, _s_block_start, _path);
+    User user_tmp;
+    /* LEER LÍNEA POR LÍNEA EL ARCHIVO USERS.TXT */
+    std::istringstream f(content_file);
+    std::string line;
+    while (getline(f, line)) {
+        int count = 0;
+        for (int i = 0; (i = line.find(',', i)) != std::string::npos; i++)
+            count++;
+        switch (count) {
+            case 4:
+                user_tmp.UID = std::stoi(line.substr(0, line.find_first_of(',')));
+                line = line.substr(line.find_first_of(',') + 1);
+
+                user_tmp.tipo = line.substr(0, line.find_first_of(','))[0];
+                line = line.substr(line.find_first_of(',') + 1);
+
+                user_tmp.grupo = line.substr(0, line.find_first_of(','));
+                line = line.substr(line.find_first_of(',') + 1);
+
+                user_tmp.nombre = line.substr(0, line.find_first_of(','));
+                line = line.substr(line.find_first_of(',') + 1);
+
+                user_tmp.contrasena = line.substr(0, line.find_first_of('\n'));
+
+                if (user_tmp.nombre == _name && user_tmp.UID != 0) {
+                    return user_tmp;
+                }
+                break;
+        }
+    }
+    user_tmp.UID = -1;
+    return user_tmp;
+}
+
+
+bool HasPermission(User _user, InodosTable _inode, int _req) {
+    char u;
+    /* Usuario root */
+    if (_user.nombre == "root")
+        return true;
+    /* Propietario */
+    if (_user.UID == _inode.i_uid)
+        u = std::to_string(_inode.i_perm)[0];
+        /* Grupo */
+    else if (_user.GID == _inode.i_gid)
+        u = std::to_string(_inode.i_perm)[1];
+        /* Otros */
+    else
+        u = std::to_string(_inode.i_perm)[2];
+
+    if (u == '7' || u == '0') // Si es permiso 7 siempre será true y 0 siempre será false
+        return u == '7';
+    switch (_req) {
+        case 1: // Ejecución
+            return u == '1' || u == '3' || u == '5' || u == '7';
+        case 2: // Escritura
+            return u == '2' || u == '3' || u == '6' || u == '7';
+        case 3: // Escritura y ejecución
+            return u == '3' || u == '7';
+        case 4: // Lectura
+            return u == '4' || u == '5' || u == '6' || u == '7';
+        case 5: // Lectura y ejecución
+            return u == '5' || u == '7';
+        case 6: // Lectura y escritura
+            return u == '6' || u == '7';
+        case 7: // Escritura, lectura y ejecución
+            return u == '7';
+        default:
+            return false;
+    }
+}
+
+void editarArchivo(std::string _path, std::string _name, std::string _content) {
+    /* EDICIÓN DE UN ARCHIVO */
+    InodosTable tmp_inode;  // Nuevo inodo
+    ArchivosBlock tmp_file; // Nuevo bloque de contenido
+
+    FILE *file = fopen((_user_logged.mounted.path).c_str(), "rb+");
+    int start_byte_sb = startByteSuperBloque(_user_logged.mounted);
+
+    /* Lectura del superbloque */
+    Superbloque super_bloque;
+    fseek(file, start_byte_sb, SEEK_SET);
+    fread(&super_bloque, sizeof(Superbloque), 1, file);
+
+    int free_block = super_bloque.s_first_blo;
+
+    /* Lectura del bitmap de bloques */
+    char bm_blocks[3 * super_bloque.s_inodes_count];
+    fseek(file, super_bloque.s_bm_block_start, SEEK_SET);
+    fread(&bm_blocks, 3 * super_bloque.s_inodes_count, 1, file);
+
+    /* Lectura del inodo de carpeta raíz */
+    InodosTable root_inode;
+    fseek(file, super_bloque.s_inode_start, SEEK_SET);
+    fread(&root_inode, sizeof(InodosTable), 1, file);
+
+    // std::cout << _content << std::endl;
+
+    /* Lectura de la última carpeta padre */
+    FolderReference fr;
+    std::vector<std::string> folders = SplitPath(_path);
+    for (int i = 0; i < folders.size(); i++) {
+        fr = getFatherReference(fr, folders[i], file, super_bloque.s_inode_start, super_bloque.s_block_start);
+        if (fr.inode == -1) {
+            // std::cout << "Not found: " + folders[i] + "\n";
+            coutError("Error: la ruta no existe y no se ha indicado el comando -r.", file);
+        }
+    }
+
+    /* Lectura del inodo de carpeta padre */
+    InodosTable inode_father;
+    fseek(file, super_bloque.s_inode_start, SEEK_SET);
+    fseek(file, fr.inode * sizeof(InodosTable), SEEK_CUR);
+    fread(&inode_father, sizeof(InodosTable), 1, file);
+    if (!HasPermission(_user_logged, inode_father, 6))
+        return coutError("El usuario no posee los permisos de lectura y escritura sobre la carpeta padre.", file);
+    if (!fileExists(inode_father, _name, file, super_bloque.s_block_start))
+        return coutError("El archivo '" + _name + "' no se encuentra en la ruta: " + _path + ".", file);
+
+    /* Lectura del bloque de carpeta padre */
+    CarpetasBlock file_block_tmp;
+    int _index_to_edit_inode = -1;
+    bool x = false;
+    // falta indirectos
+    for (int i = 0; i < 15 && !x; i++) {
+        if (inode_father.i_block[i] != -1) {
+            fseek(file, super_bloque.s_block_start, SEEK_SET);
+            fseek(file, inode_father.i_block[i] * 64, SEEK_CUR);
+            fread(&file_block_tmp, 64, 1, file);
+            for (int j = 0; j < 4; j++) {
+                if (std::string(file_block_tmp.b_content[j].b_name) == _name) {
+                    _index_to_edit_inode = file_block_tmp.b_content[j].b_inodo;
+                    x = true;
+                    break;
+                }
+            }
+        }
+    }
+    if (!x)
+        return coutError("No se halló el inodo del archivo a editar.", file);
+
+    InodosTable inode_current; // Leer el inodo de archivo que sólo posee bloques de contenido
+    fseek(file, super_bloque.s_inode_start, SEEK_SET);
+    fseek(file, _index_to_edit_inode * sizeof(InodosTable), SEEK_CUR);
+    fread(&inode_current, sizeof(InodosTable), 1, file);
+
+    inode_current.i_size = _content.length();
+    inode_current.i_mtime = getCurrentTime();
+    /* Llenar con la información del archivo */
+    ArchivosBlock tmp_content_block;
+    std::string tmp = "";
+    for (int i = 0; i < 15; i++) //falta indirectos
+    {
+        if (_content.length() > 64) {
+            tmp = _content.substr(0, 64);
+            _content = _content.substr(64);
+        } else {
+            tmp = _content;
+            _content = "";
+        }
+        /* Reutiliza el mismo bloque */
+        if (inode_current.i_block[i] != -1 && tmp.length() > 0) {
+            strcpy(tmp_content_block.b_content, tmp.c_str());
+            fseek(file, super_bloque.s_block_start, SEEK_SET);
+            fseek(file, inode_current.i_block[i] * 64, SEEK_CUR);
+            fwrite(&tmp_content_block, 64, 1, file);
+            /* Crea otro bloque en caso exceda el tamaño anterior */
+        } else if (inode_current.i_block[i] == -1 &&
+                   tmp.length() > 0) {
+            strcpy(tmp_content_block.b_content, tmp.c_str());
+            fseek(file, super_bloque.s_block_start, SEEK_SET);
+            fseek(file, free_block * 64, SEEK_CUR);
+            fwrite(&tmp_content_block, 64, 1, file);
+            inode_current.i_block[i] = free_block;
+            bm_blocks[free_block] == '1';
+            free_block++;
+            super_bloque.s_first_blo = free_block;
+            super_bloque.s_free_blocks_count--;
+            /* El archivo era más grande y se liberan los bloques */
+        } else if (inode_current.i_block[i] != -1 &&
+                   tmp.length() == 0) {
+            strcpy(tmp_content_block.b_content, "");
+            fseek(file, super_bloque.s_block_start, SEEK_SET);
+            fseek(file, inode_current.i_block[i] * 64, SEEK_CUR);
+            fwrite(&tmp_content_block, 64, 1, file);
+            bm_blocks[inode_current.i_block[i]] = '0';
+            // free_block = inode_current.i_block[i];
+            // super_bloque.s_first_blo = free_block;
+            super_bloque.s_free_blocks_count++;
+            inode_current.i_block[i] = -1;
+        }
+    }
+
+    /* ESCRITURA */
+    fseek(file, start_byte_sb, SEEK_SET);
+    fwrite(&super_bloque, sizeof(Superbloque), 1, file);
+
+    fseek(file, super_bloque.s_bm_block_start, SEEK_SET);
+    fwrite(&bm_blocks, 3 * super_bloque.s_inodes_count, 1, file);
+
+    fseek(file, super_bloque.s_inode_start, SEEK_SET); // Mover el puntero al inicio de la tabla de inodos
+    fseek(file, _index_to_edit_inode * sizeof(InodosTable), SEEK_CUR);
+    fwrite(&inode_current, sizeof(InodosTable), 1, file);
+
+    fclose(file);
+    file = NULL;
+    // std::cout << "Se editó el archivo: " + _path + "/" + _name + "\n";
+}
+
+
+
+
+
+
 

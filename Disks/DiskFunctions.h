@@ -1,11 +1,9 @@
-//
-// Created by erick on 26/08/22.
-//
 
-#ifndef _MIA_HT2_201901758_DISKFUNCTIONS_H
-#define _MIA_HT2_201901758_DISKFUNCTIONS_H
+#ifndef MIA_PROYECTO1_201901758_2S2022_DISKFUNCTIONS_H
+#define MIA_PROYECTO1_201901758_2S2022_DISKFUNCTIONS_H
 
 #include "../Utils/Structures.h"
+
 
 bool existLogicPartition(EBR _ebr, std::string _name, FILE *_file);
 
@@ -33,5 +31,10 @@ int getPartitionsSize(MBR _mbr);
 
 int getLogicsSize(EBR _ebr, int _s, FILE *_file);
 
+DiskId buildID(std::string _id);
 
-#endif //_MIA_HT2_201901758_DISKFUNCTIONS_H
+int existMountedID(DiskId _disk_id);
+
+
+
+#endif

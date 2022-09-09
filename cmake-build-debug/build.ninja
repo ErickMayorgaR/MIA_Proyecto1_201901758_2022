@@ -52,191 +52,260 @@ build cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022: phony ||
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/main.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/main.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/driver.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Analyzer/driver.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/driver.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/parser.tab.cc.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Analyzer/parser.tab.cc || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/parser.tab.cc.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/scanner.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Analyzer/scanner.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/scanner.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Utils/Functions.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Utils/Functions.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Utils/Functions.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Utils
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/MkDisk.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Disks/MkDisk.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/MkDisk.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/Mount.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Partitions/Mount.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/Mount.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/UnMount.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Partitions/UnMount.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/UnMount.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Mkfs.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystem/Mkfs.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Mkfs.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Login.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystem/Login.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Login.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Logout.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystem/Logout.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Logout.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/MkGrp.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystem/MkGrp.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/MkGrp.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/RmGrp.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystem/RmGrp.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/RmGrp.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/MkUsr.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystem/MkUsr.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/MkUsr.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/RmUsr.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystem/RmUsr.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/RmUsr.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chmod.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Chmod.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chmod.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/MkFile.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/MkFile.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/MkFile.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Cat.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Cat.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Cat.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Remove.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Remove.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Remove.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
-  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
-  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
-
-build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Edit.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Edit.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
-  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Edit.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Rename.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Rename.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Rename.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/MkDir.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/MkDir.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/MkDir.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Copy.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Copy.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Copy.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Move.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Move.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Move.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Find.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Find.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Find.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chown.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Chown.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chown.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
 
 build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chgrp.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystemAdmin/Chgrp.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
   DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chgrp.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/.
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
   OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/DiskFunctions.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Disks/DiskFunctions.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/DiskFunctions.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/RmDisk.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Disks/RmDisk.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/RmDisk.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/FDisk.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Partitions/FDisk.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/FDisk.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/ReportHandler.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/ReportHandler.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/ReportHandler.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/Block.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/Block.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/Block.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/BMBlock.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/BMBlock.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/BMBlock.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/BMInode.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/BMInode.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/BMInode.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/DiskReport.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/DiskReport.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/DiskReport.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/Inode.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/Inode.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/Inode.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/JournalingReport.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/JournalingReport.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/JournalingReport.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/Tree.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/Tree.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/Tree.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/SB.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/SB.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/SB.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/FileReport.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/FileReport.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/FileReport.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/LS.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/LS.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/LS.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Recovery.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystem/Recovery.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Recovery.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Loss.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/FileSystem/Loss.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Loss.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem
+
+build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/ReportFunctions.cpp.o: CXX_COMPILER__MIA_Proyecto1_201901758_2s2022_Debug /home/erick/Desktop/MIA-Proyecto1-201901758-2s2022/Reports/ReportFunctions.cpp || cmake_object_order_depends_target_MIA_Proyecto1_201901758_2s2022
+  DEP_FILE = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/ReportFunctions.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir
+  OBJECT_FILE_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports
 
 
 # =============================================================================
@@ -246,7 +315,7 @@ build CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chgrp.cpp.o:
 #############################################
 # Link the executable MIA_Proyecto1_201901758_2s2022
 
-build MIA_Proyecto1_201901758_2s2022: CXX_EXECUTABLE_LINKER__MIA_Proyecto1_201901758_2s2022_Debug CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/main.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/driver.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/parser.tab.cc.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/scanner.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Utils/Functions.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/MkDisk.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/Mount.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/UnMount.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Mkfs.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Login.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Logout.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/MkGrp.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/RmGrp.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/MkUsr.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/RmUsr.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chmod.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/MkFile.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Cat.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Remove.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Edit.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Rename.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/MkDir.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Copy.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Move.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Find.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chown.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chgrp.cpp.o
+build MIA_Proyecto1_201901758_2s2022: CXX_EXECUTABLE_LINKER__MIA_Proyecto1_201901758_2s2022_Debug CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/main.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/driver.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/parser.tab.cc.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Analyzer/scanner.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Utils/Functions.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/MkDisk.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/Mount.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/UnMount.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Mkfs.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Login.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Logout.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/MkGrp.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/RmGrp.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/MkUsr.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/RmUsr.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chmod.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/MkFile.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Cat.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Remove.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Rename.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/MkDir.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Copy.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Move.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Find.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chown.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystemAdmin/Chgrp.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/DiskFunctions.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Disks/RmDisk.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Partitions/FDisk.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/ReportHandler.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/Block.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/BMBlock.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/BMInode.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/DiskReport.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/Inode.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/JournalingReport.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/Tree.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/SB.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/FileReport.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/LS.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Recovery.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/FileSystem/Loss.cpp.o CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir/Reports/ReportFunctions.cpp.o
   FLAGS = -g
   LINK_LIBRARIES = -lstdc++fs
   OBJECT_DIR = CMakeFiles/MIA_Proyecto1_201901758_2s2022.dir

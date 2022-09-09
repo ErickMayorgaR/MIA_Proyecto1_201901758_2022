@@ -66,7 +66,7 @@ PATH_DIR \/.[^" "]+|{IDENTIFICADOR}"."{IDENTIFICADOR}
 
 "chmod"                 {return yy::class_parser::make_CHMOD(yytext, loc);}
 "chown"                 {return yy::class_parser::make_CHOWN(yytext, loc);}
-"touch"                 {return yy::class_parser::make_TOUCH(yytext, loc);}
+"mkfile"                 {return yy::class_parser::make_MKFILE(yytext, loc);}
 "cat"                   {return yy::class_parser::make_CAT(yytext, loc);}
 "rm"                    {return yy::class_parser::make_RM(yytext, loc);}
 "edit"                  {return yy::class_parser::make_EDIT(yytext, loc);}
