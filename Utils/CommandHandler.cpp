@@ -30,16 +30,14 @@
 #include "../FileSystemAdmin/Find.h"
 #include "../FileSystemAdmin/Chown.h"
 #include "../FileSystemAdmin/Chgrp.h"
-
 #include "AdminStructure.h"
-
 #include "../Reports/ReportHandler.h"
 #include "../Reports/JournalingReport.h"
-
-
 #include "Functions.h"
 
-int CommandHandler(struct Command x) {
+
+
+int CommandHandler(struct command x) {
     if (x.keyword == "__MKFS" || x.keyword == "__MKGRP" || x.keyword == "__RMGRP" || x.keyword == "__MKUSR" ||
         x.keyword == "__RMUSR" ||
         x.keyword == "__CHMOD" || x.keyword == "__TOUCH" || x.keyword == "__RM" || x.keyword == "__EDIT" ||

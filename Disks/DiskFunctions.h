@@ -1,6 +1,6 @@
-
 #ifndef MIA_PROYECTO1_201901758_2S2022_DISKFUNCTIONS_H
 #define MIA_PROYECTO1_201901758_2S2022_DISKFUNCTIONS_H
+
 
 #include "../Utils/Structures.h"
 
@@ -8,6 +8,8 @@
 bool existLogicPartition(EBR _ebr, std::string _name, FILE *_file);
 
 char existPartition(MBR _mbr, std::string _name, FILE *_file);
+
+
 
 EBR getLogicPartition(EBR _ebr, std::string _name, FILE *_file);
 

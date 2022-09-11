@@ -1,6 +1,8 @@
 
 #include "../Utils/Functions.h"
 #include "Find.h"
+#include "../Utils/Variables.h"
+
 
 
 Find::Find(std::string path, std::string name) {

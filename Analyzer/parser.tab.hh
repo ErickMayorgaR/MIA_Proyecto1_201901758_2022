@@ -418,6 +418,7 @@ namespace yy {
       // "_PATH"
       // "_SIZE"
       // "_TYPE"
+      // "_TYPE2"
       // "_DELETE"
       // "_NAME"
       // "_ADD"
@@ -433,7 +434,7 @@ namespace yy {
       // "_USER"
       // "_PWD"
       // "_GRP"
-      // "_TOUCH"
+      // "_MKFILE"
       // "_CHOWN"
       // "_CHMOD"
       // "_CAT"
@@ -531,56 +532,57 @@ namespace yy {
     TOK_PATH = 261,                // "_PATH"
     TOK_SIZE = 262,                // "_SIZE"
     TOK_TYPE = 263,                // "_TYPE"
-    TOK_DELETE = 264,              // "_DELETE"
-    TOK_NAME = 265,                // "_NAME"
-    TOK_ADD = 266,                 // "_ADD"
-    TOK_ID = 267,                  // "_ID"
-    TOK_FS = 268,                  // "_FS"
-    TOK_LOGIN = 269,               // "_login"
-    TOK_LOGOUT = 270,              // "_logout"
-    TOK_MKGRP = 271,               // "_MKGRP"
-    TOK_RMGRP = 272,               // "_RMGRP"
-    TOK_MKUSR = 273,               // "_MKUSR"
-    TOK_RMUSR = 274,               // "_RMUSR"
-    TOK_CHGRP = 275,               // "_CHGRP"
-    TOK_USER = 276,                // "_USER"
-    TOK_PWD = 277,                 // "_PWD"
-    TOK_GRP = 278,                 // "_GRP"
-    TOK_TOUCH = 279,               // "_TOUCH"
-    TOK_CHOWN = 280,               // "_CHOWN"
-    TOK_CHMOD = 281,               // "_CHMOD"
-    TOK_CAT = 282,                 // "_CAT"
-    TOK_RM = 283,                  // "_RM"
-    TOK_EDIT = 284,                // "_EDIT"
-    TOK_REN = 285,                 // "_REN"
-    TOK_MV = 286,                  // "_MV"
-    TOK_CP = 287,                  // "_CP"
-    TOK_MKDIR = 288,               // "_MKDIR"
-    TOK_FIND = 289,                // "_FIND"
-    TOK_LOSS = 290,                // "_LOSS"
-    TOK_RECOVERY = 291,            // "_RECOVERY"
-    TOK_R = 292,                   // "_R"
-    TOK_FILEN = 293,               // "_FILEN"
-    TOK_DEST = 294,                // "_DEST"
-    TOK_P = 295,                   // "_P"
-    TOK_CONT = 296,                // "_CONT"
-    TOK_UGO = 297,                 // "_UGO"
-    TOK_STDIN = 298,               // "_STDIN"
-    TOK_RUTA = 299,                // "_RUTA"
-    TOK_MKDISK = 300,              // "_MKDISK"
-    TOK_RMDISK = 301,              // "_RMDISK"
-    TOK_FDISK = 302,               // "_FDISK"
-    TOK_MOUNT = 303,               // "_MOUNT"
-    TOK_UMOUNT = 304,              // "_UMOUNT"
-    TOK_MKFS = 305,                // "_MKFS"
-    TOK_STRING_DOUBLE = 306,       // "tk_string_d"
-    TOK_STRING_SINGLE = 307,       // "tk_string_s"
-    TOK_PATH_DIR = 308,            // "tk_path"
-    TOK_RUN_EXEC = 309,            // "_exec"
-    TOK_RUN_REPORT = 310,          // "_rep"
-    TOK_IDENTIFICADOR = 311,       // "tk_identifier"
-    TOK_PATTERN = 312,             // "tk_pattern"
-    TOK_NUMERO = 313               // "tk_number"
+    TOK_TYPE2 = 264,               // "_TYPE2"
+    TOK_DELETE = 265,              // "_DELETE"
+    TOK_NAME = 266,                // "_NAME"
+    TOK_ADD = 267,                 // "_ADD"
+    TOK_ID = 268,                  // "_ID"
+    TOK_FS = 269,                  // "_FS"
+    TOK_LOGIN = 270,               // "_login"
+    TOK_LOGOUT = 271,              // "_logout"
+    TOK_MKGRP = 272,               // "_MKGRP"
+    TOK_RMGRP = 273,               // "_RMGRP"
+    TOK_MKUSR = 274,               // "_MKUSR"
+    TOK_RMUSR = 275,               // "_RMUSR"
+    TOK_CHGRP = 276,               // "_CHGRP"
+    TOK_USER = 277,                // "_USER"
+    TOK_PWD = 278,                 // "_PWD"
+    TOK_GRP = 279,                 // "_GRP"
+    TOK_MKFILE = 280,              // "_MKFILE"
+    TOK_CHOWN = 281,               // "_CHOWN"
+    TOK_CHMOD = 282,               // "_CHMOD"
+    TOK_CAT = 283,                 // "_CAT"
+    TOK_RM = 284,                  // "_RM"
+    TOK_EDIT = 285,                // "_EDIT"
+    TOK_REN = 286,                 // "_REN"
+    TOK_MV = 287,                  // "_MV"
+    TOK_CP = 288,                  // "_CP"
+    TOK_MKDIR = 289,               // "_MKDIR"
+    TOK_FIND = 290,                // "_FIND"
+    TOK_LOSS = 291,                // "_LOSS"
+    TOK_RECOVERY = 292,            // "_RECOVERY"
+    TOK_R = 293,                   // "_R"
+    TOK_FILEN = 294,               // "_FILEN"
+    TOK_DEST = 295,                // "_DEST"
+    TOK_P = 296,                   // "_P"
+    TOK_CONT = 297,                // "_CONT"
+    TOK_UGO = 298,                 // "_UGO"
+    TOK_STDIN = 299,               // "_STDIN"
+    TOK_RUTA = 300,                // "_RUTA"
+    TOK_MKDISK = 301,              // "_MKDISK"
+    TOK_RMDISK = 302,              // "_RMDISK"
+    TOK_FDISK = 303,               // "_FDISK"
+    TOK_MOUNT = 304,               // "_MOUNT"
+    TOK_UMOUNT = 305,              // "_UMOUNT"
+    TOK_MKFS = 306,                // "_MKFS"
+    TOK_STRING_DOUBLE = 307,       // "tk_string_d"
+    TOK_STRING_SINGLE = 308,       // "tk_string_s"
+    TOK_PATH_DIR = 309,            // "tk_path"
+    TOK_RUN_EXEC = 310,            // "_exec"
+    TOK_RUN_REPORT = 311,          // "_rep"
+    TOK_IDENTIFICADOR = 312,       // "tk_identifier"
+    TOK_PATTERN = 313,             // "tk_pattern"
+    TOK_NUMERO = 314               // "tk_number"
       };
       /// Backward compatibility alias (Bison 3.6).
       typedef token_kind_type yytokentype;
@@ -597,7 +599,7 @@ namespace yy {
     {
       enum symbol_kind_type
       {
-        YYNTOKENS = 59, ///< Number of tokens.
+        YYNTOKENS = 60, ///< Number of tokens.
         S_YYEMPTY = -2,
         S_YYEOF = 0,                             // "eof"
         S_YYerror = 1,                           // error
@@ -608,69 +610,70 @@ namespace yy {
         S_PATH = 6,                              // "_PATH"
         S_SIZE = 7,                              // "_SIZE"
         S_TYPE = 8,                              // "_TYPE"
-        S_DELETE = 9,                            // "_DELETE"
-        S_NAME = 10,                             // "_NAME"
-        S_ADD = 11,                              // "_ADD"
-        S_ID = 12,                               // "_ID"
-        S_FS = 13,                               // "_FS"
-        S_LOGIN = 14,                            // "_login"
-        S_LOGOUT = 15,                           // "_logout"
-        S_MKGRP = 16,                            // "_MKGRP"
-        S_RMGRP = 17,                            // "_RMGRP"
-        S_MKUSR = 18,                            // "_MKUSR"
-        S_RMUSR = 19,                            // "_RMUSR"
-        S_CHGRP = 20,                            // "_CHGRP"
-        S_USER = 21,                             // "_USER"
-        S_PWD = 22,                              // "_PWD"
-        S_GRP = 23,                              // "_GRP"
-        S_TOUCH = 24,                            // "_TOUCH"
-        S_CHOWN = 25,                            // "_CHOWN"
-        S_CHMOD = 26,                            // "_CHMOD"
-        S_CAT = 27,                              // "_CAT"
-        S_RM = 28,                               // "_RM"
-        S_EDIT = 29,                             // "_EDIT"
-        S_REN = 30,                              // "_REN"
-        S_MV = 31,                               // "_MV"
-        S_CP = 32,                               // "_CP"
-        S_MKDIR = 33,                            // "_MKDIR"
-        S_FIND = 34,                             // "_FIND"
-        S_LOSS = 35,                             // "_LOSS"
-        S_RECOVERY = 36,                         // "_RECOVERY"
-        S_R = 37,                                // "_R"
-        S_FILEN = 38,                            // "_FILEN"
-        S_DEST = 39,                             // "_DEST"
-        S_P = 40,                                // "_P"
-        S_CONT = 41,                             // "_CONT"
-        S_UGO = 42,                              // "_UGO"
-        S_STDIN = 43,                            // "_STDIN"
-        S_RUTA = 44,                             // "_RUTA"
-        S_MKDISK = 45,                           // "_MKDISK"
-        S_RMDISK = 46,                           // "_RMDISK"
-        S_FDISK = 47,                            // "_FDISK"
-        S_MOUNT = 48,                            // "_MOUNT"
-        S_UMOUNT = 49,                           // "_UMOUNT"
-        S_MKFS = 50,                             // "_MKFS"
-        S_STRING_DOUBLE = 51,                    // "tk_string_d"
-        S_STRING_SINGLE = 52,                    // "tk_string_s"
-        S_PATH_DIR = 53,                         // "tk_path"
-        S_RUN_EXEC = 54,                         // "_exec"
-        S_RUN_REPORT = 55,                       // "_rep"
-        S_IDENTIFICADOR = 56,                    // "tk_identifier"
-        S_PATTERN = 57,                          // "tk_pattern"
-        S_NUMERO = 58,                           // "tk_number"
-        S_YYACCEPT = 59,                         // $accept
-        S_INICIO = 60,                           // INICIO
-        S_STRING = 61,                           // STRING
-        S_DATA = 62,                             // DATA
-        S_E = 63,                                // E
-        S_EXEC = 64,                             // EXEC
-        S_DISCOS = 65,                           // DISCOS
-        S_ADMIN_USERS_GROUPS = 66,               // ADMIN_USERS_GROUPS
-        S_FILESYSTEM = 67,                       // FILESYSTEM
-        S_REPORT = 68,                           // REPORT
-        S_PARAMS = 69,                           // PARAMS
-        S_PARAM = 70,                            // PARAM
-        S_BOOLEAN_PARAM = 71                     // BOOLEAN_PARAM
+        S_TYPE2 = 9,                             // "_TYPE2"
+        S_DELETE = 10,                           // "_DELETE"
+        S_NAME = 11,                             // "_NAME"
+        S_ADD = 12,                              // "_ADD"
+        S_ID = 13,                               // "_ID"
+        S_FS = 14,                               // "_FS"
+        S_LOGIN = 15,                            // "_login"
+        S_LOGOUT = 16,                           // "_logout"
+        S_MKGRP = 17,                            // "_MKGRP"
+        S_RMGRP = 18,                            // "_RMGRP"
+        S_MKUSR = 19,                            // "_MKUSR"
+        S_RMUSR = 20,                            // "_RMUSR"
+        S_CHGRP = 21,                            // "_CHGRP"
+        S_USER = 22,                             // "_USER"
+        S_PWD = 23,                              // "_PWD"
+        S_GRP = 24,                              // "_GRP"
+        S_MKFILE = 25,                           // "_MKFILE"
+        S_CHOWN = 26,                            // "_CHOWN"
+        S_CHMOD = 27,                            // "_CHMOD"
+        S_CAT = 28,                              // "_CAT"
+        S_RM = 29,                               // "_RM"
+        S_EDIT = 30,                             // "_EDIT"
+        S_REN = 31,                              // "_REN"
+        S_MV = 32,                               // "_MV"
+        S_CP = 33,                               // "_CP"
+        S_MKDIR = 34,                            // "_MKDIR"
+        S_FIND = 35,                             // "_FIND"
+        S_LOSS = 36,                             // "_LOSS"
+        S_RECOVERY = 37,                         // "_RECOVERY"
+        S_R = 38,                                // "_R"
+        S_FILEN = 39,                            // "_FILEN"
+        S_DEST = 40,                             // "_DEST"
+        S_P = 41,                                // "_P"
+        S_CONT = 42,                             // "_CONT"
+        S_UGO = 43,                              // "_UGO"
+        S_STDIN = 44,                            // "_STDIN"
+        S_RUTA = 45,                             // "_RUTA"
+        S_MKDISK = 46,                           // "_MKDISK"
+        S_RMDISK = 47,                           // "_RMDISK"
+        S_FDISK = 48,                            // "_FDISK"
+        S_MOUNT = 49,                            // "_MOUNT"
+        S_UMOUNT = 50,                           // "_UMOUNT"
+        S_MKFS = 51,                             // "_MKFS"
+        S_STRING_DOUBLE = 52,                    // "tk_string_d"
+        S_STRING_SINGLE = 53,                    // "tk_string_s"
+        S_PATH_DIR = 54,                         // "tk_path"
+        S_RUN_EXEC = 55,                         // "_exec"
+        S_RUN_REPORT = 56,                       // "_rep"
+        S_IDENTIFICADOR = 57,                    // "tk_identifier"
+        S_PATTERN = 58,                          // "tk_pattern"
+        S_NUMERO = 59,                           // "tk_number"
+        S_YYACCEPT = 60,                         // $accept
+        S_INICIO = 61,                           // INICIO
+        S_STRING = 62,                           // STRING
+        S_DATA = 63,                             // DATA
+        S_E = 64,                                // E
+        S_EXEC = 65,                             // EXEC
+        S_DISCOS = 66,                           // DISCOS
+        S_ADMIN_USERS_GROUPS = 67,               // ADMIN_USERS_GROUPS
+        S_FILESYSTEM = 68,                       // FILESYSTEM
+        S_REPORT = 69,                           // REPORT
+        S_PARAMS = 70,                           // PARAMS
+        S_PARAM = 71,                            // PARAM
+        S_BOOLEAN_PARAM = 72                     // BOOLEAN_PARAM
       };
     };
 
@@ -713,6 +716,7 @@ namespace yy {
       case symbol_kind::S_PATH: // "_PATH"
       case symbol_kind::S_SIZE: // "_SIZE"
       case symbol_kind::S_TYPE: // "_TYPE"
+      case symbol_kind::S_TYPE2: // "_TYPE2"
       case symbol_kind::S_DELETE: // "_DELETE"
       case symbol_kind::S_NAME: // "_NAME"
       case symbol_kind::S_ADD: // "_ADD"
@@ -728,7 +732,7 @@ namespace yy {
       case symbol_kind::S_USER: // "_USER"
       case symbol_kind::S_PWD: // "_PWD"
       case symbol_kind::S_GRP: // "_GRP"
-      case symbol_kind::S_TOUCH: // "_TOUCH"
+      case symbol_kind::S_MKFILE: // "_MKFILE"
       case symbol_kind::S_CHOWN: // "_CHOWN"
       case symbol_kind::S_CHMOD: // "_CHMOD"
       case symbol_kind::S_CAT: // "_CAT"
@@ -837,6 +841,7 @@ switch (yykind)
       case symbol_kind::S_PATH: // "_PATH"
       case symbol_kind::S_SIZE: // "_SIZE"
       case symbol_kind::S_TYPE: // "_TYPE"
+      case symbol_kind::S_TYPE2: // "_TYPE2"
       case symbol_kind::S_DELETE: // "_DELETE"
       case symbol_kind::S_NAME: // "_NAME"
       case symbol_kind::S_ADD: // "_ADD"
@@ -852,7 +857,7 @@ switch (yykind)
       case symbol_kind::S_USER: // "_USER"
       case symbol_kind::S_PWD: // "_PWD"
       case symbol_kind::S_GRP: // "_GRP"
-      case symbol_kind::S_TOUCH: // "_TOUCH"
+      case symbol_kind::S_MKFILE: // "_MKFILE"
       case symbol_kind::S_CHOWN: // "_CHOWN"
       case symbol_kind::S_CHMOD: // "_CHMOD"
       case symbol_kind::S_CAT: // "_CAT"
@@ -1193,6 +1198,21 @@ switch (yykind)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
+      make_TYPE2 (std::string v, location_type l)
+      {
+        return symbol_type (token::TOK_TYPE2, std::move (v), std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_TYPE2 (const std::string& v, const location_type& l)
+      {
+        return symbol_type (token::TOK_TYPE2, v, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
       make_DELETE (std::string v, location_type l)
       {
         return symbol_type (token::TOK_DELETE, std::move (v), std::move (l));
@@ -1418,16 +1438,16 @@ switch (yykind)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_TOUCH (std::string v, location_type l)
+      make_MKFILE (std::string v, location_type l)
       {
-        return symbol_type (token::TOK_TOUCH, std::move (v), std::move (l));
+        return symbol_type (token::TOK_MKFILE, std::move (v), std::move (l));
       }
 #else
       static
       symbol_type
-      make_TOUCH (const std::string& v, const location_type& l)
+      make_MKFILE (const std::string& v, const location_type& l)
       {
-        return symbol_type (token::TOK_TOUCH, v, l);
+        return symbol_type (token::TOK_MKFILE, v, l);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -2270,9 +2290,9 @@ switch (yykind)
     /// Constants.
     enum
     {
-      yylast_ = 180,     ///< Last index in yytable_.
+      yylast_ = 182,     ///< Last index in yytable_.
       yynnts_ = 13,  ///< Number of nonterminal symbols.
-      yyfinal_ = 87 ///< Termination state number.
+      yyfinal_ = 88 ///< Termination state number.
     };
 
 
@@ -2322,10 +2342,10 @@ switch (yykind)
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
       45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
-      55,    56,    57,    58
+      55,    56,    57,    58,    59
     };
     // Last valid token kind.
-    const int code_max = 313;
+    const int code_max = 314;
 
     if (t <= 0)
       return symbol_kind::S_YYEOF;
@@ -2350,6 +2370,7 @@ switch (yykind)
       case symbol_kind::S_PATH: // "_PATH"
       case symbol_kind::S_SIZE: // "_SIZE"
       case symbol_kind::S_TYPE: // "_TYPE"
+      case symbol_kind::S_TYPE2: // "_TYPE2"
       case symbol_kind::S_DELETE: // "_DELETE"
       case symbol_kind::S_NAME: // "_NAME"
       case symbol_kind::S_ADD: // "_ADD"
@@ -2365,7 +2386,7 @@ switch (yykind)
       case symbol_kind::S_USER: // "_USER"
       case symbol_kind::S_PWD: // "_PWD"
       case symbol_kind::S_GRP: // "_GRP"
-      case symbol_kind::S_TOUCH: // "_TOUCH"
+      case symbol_kind::S_MKFILE: // "_MKFILE"
       case symbol_kind::S_CHOWN: // "_CHOWN"
       case symbol_kind::S_CHMOD: // "_CHMOD"
       case symbol_kind::S_CAT: // "_CAT"
@@ -2444,6 +2465,7 @@ switch (yykind)
       case symbol_kind::S_PATH: // "_PATH"
       case symbol_kind::S_SIZE: // "_SIZE"
       case symbol_kind::S_TYPE: // "_TYPE"
+      case symbol_kind::S_TYPE2: // "_TYPE2"
       case symbol_kind::S_DELETE: // "_DELETE"
       case symbol_kind::S_NAME: // "_NAME"
       case symbol_kind::S_ADD: // "_ADD"
@@ -2459,7 +2481,7 @@ switch (yykind)
       case symbol_kind::S_USER: // "_USER"
       case symbol_kind::S_PWD: // "_PWD"
       case symbol_kind::S_GRP: // "_GRP"
-      case symbol_kind::S_TOUCH: // "_TOUCH"
+      case symbol_kind::S_MKFILE: // "_MKFILE"
       case symbol_kind::S_CHOWN: // "_CHOWN"
       case symbol_kind::S_CHMOD: // "_CHMOD"
       case symbol_kind::S_CAT: // "_CAT"
@@ -2568,7 +2590,7 @@ switch (yykind)
 
 #line 6 "parser.yy"
 } // yy
-#line 2572 "parser.tab.hh"
+#line 2594 "parser.tab.hh"
 
 
 

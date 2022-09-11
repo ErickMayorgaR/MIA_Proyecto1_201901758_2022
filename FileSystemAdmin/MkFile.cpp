@@ -1,9 +1,10 @@
 #include "MkFile.h"
 #include "../Utils/Structures.h"
 #include "../Utils/Functions.h"
-
 #include <iostream>
-#include <string.h>
+#include <cstring>
+#include "../Utils/Variables.h"
+
 
 
 MkFile::MkFile(std::string path, std::string r, std::string size, std::string cont, std::string _stdin, bool toEdit) {
@@ -255,7 +256,6 @@ void MkFile::edit() {
         }
     } else
         return coutError("Error: debe existir una entrada para poder editar el archivo.", NULL);
-
     return editarArchivo(npath, filename, content);
 }
 

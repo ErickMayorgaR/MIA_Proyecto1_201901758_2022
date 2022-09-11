@@ -5,6 +5,8 @@
 
 #include <string>
 #include "../Utils/Structures.h"
+#include "../Utils/Variables.h"
+
 
 class Mount {
 public:

@@ -2,6 +2,8 @@
 
 #include "../Utils/Functions.h"
 #include "Chgrp.h"
+#include "../Utils/Variables.h"
+
 
 
 
@@ -49,7 +51,7 @@ void Chgrp::executeChgrp() {
     /* LEER LÍNEA POR LÍNEA EL ARCHIVO USERS.TXT */
     // std::cout << content_file << std::endl;
     std::istringstream f(content_file);
-    string line;
+    std::string line;
     int gid = 1;
     int uid = 1;
     bool existGroup, userFound = false;
@@ -100,10 +102,10 @@ void Chgrp::executeChgrp() {
     if (!userFound)
         return coutError("Error: No existe ningún usuario activo con el nombre: '" + user_to_edit.nombre + "'.", file);
 
-    string tmp =
+    std::string tmp =
             std::to_string(user_tmp.UID) + ",U," + user_tmp.grupo + "," + user_tmp.nombre + "," + user_tmp.contrasena +
             "\n";
-    string edited = std::to_string(user_tmp.UID) + ",U," + user_to_edit.grupo + "," + user_tmp.nombre + "," +
+    std::string edited = std::to_string(user_tmp.UID) + ",U," + user_to_edit.grupo + "," + user_tmp.nombre + "," +
                     user_tmp.contrasena + "\n";
     content_file.replace(content_file.find(tmp), tmp.length(), edited);
     // std::cout << content_file + "\n";

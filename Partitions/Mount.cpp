@@ -60,6 +60,8 @@ void Mount::mountPartition() {
 
     particiones_montadas.push_back(_mounted);
 
+    std::vector<ParticionesMontadas> pm = particiones_montadas;
+
     if (tipo != 'E') {
         Superbloque sb;
         fseek(_file, _part_start, SEEK_SET);
@@ -82,11 +84,13 @@ void Mount::mountPartition() {
 DiskId Mount::assignID() {
     ParticionesMontadas mounted;
     DiskId tmp;
+    std::string name1 = path.substr(path.find_last_of('/') + 1);
+
     for (int i = particiones_montadas.size() - 1; i >= 0; i--) {
         mounted = particiones_montadas[i];
         if (mounted.path == path) {
             tmp._number_id = mounted.id._number_id;
-            tmp._letter_id = char(int(mounted.id._letter_id) + 1);
+            tmp._disk_name_id = name1;
             return tmp;
         }
     }
@@ -98,7 +102,7 @@ DiskId Mount::assignID() {
 void Mount::printMOUNTED() {
     for (int i = 0; i < particiones_montadas.size(); i++) {
         ParticionesMontadas _mounted = particiones_montadas[i];
-        std::string tmp = _mounted.id._carnet + std::to_string(_mounted.id._number_id) + _mounted.id._letter_id;
+        std::string tmp = _mounted.id._carnet + std::to_string(_mounted.id._number_id) + _mounted.id._disk_name_id;
         std::string name = (_mounted.type == 'L') ? _mounted.logica.part_name : _mounted.particion.part_name;
         std::cout << "\033[1;33m" + _mounted.path + "|" + name + "|" + tmp + "\033[0m\n";
     }

@@ -5,6 +5,7 @@
 #include "../Utils/Functions.h"
 #include <string>
 #include "Cat.h"
+#include "../Utils/Variables.h"
 
 
 

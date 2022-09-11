@@ -8,7 +8,6 @@ class MkDisk{
 public:
     MkDisk(std::string path, std::string size, std::string fit, std::string unit);
 
-
     std::string size;
     std::string path;
     std::string fit;

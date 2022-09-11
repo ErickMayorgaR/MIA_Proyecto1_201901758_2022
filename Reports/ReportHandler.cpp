@@ -15,6 +15,7 @@
 #include "FileReport.h"
 #include "LS.h"
 #include "Block.h"
+#include "../Utils/Variables.h"
 
 
 
@@ -36,7 +37,7 @@ void ReportHandler::executeReportHandler() {
     std::string dir_output = buildPath(_path);
 
     DiskId disk_id = buildID(_id);
-
+    std::vector<ParticionesMontadas> pm = particiones_montadas;
     int index = existMountedID(disk_id);
     if (index == -1) {
         return coutError("No se encuentra ninguna partición montada con el id '" + _id + "'.", NULL);

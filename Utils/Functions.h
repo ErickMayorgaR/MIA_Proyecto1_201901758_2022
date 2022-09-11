@@ -77,7 +77,10 @@ User getUserByName(std::string _name, int _index_inode, int _s_inode_start, int 
 
 bool HasPermission(User _user, InodosTable _inode, int _req);
 
-void editarArchivo(std::string _path, std::string _name, std::string _content)
+void editarArchivo(std::string _path, std::string _name, std::string _content);
+
+std::string getData(Group _group, User _user);
+
 
 
 

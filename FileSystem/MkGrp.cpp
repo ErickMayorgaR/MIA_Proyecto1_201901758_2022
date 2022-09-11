@@ -4,6 +4,9 @@
 #include <string.h>
 #include "../Utils/Functions.h"
 #include "../Disks/DiskFunctions.h"
+#include "../Utils/Variables.h"
+
+
 
 MkGrp::MkGrp(std::string name) {
     this->name = name;

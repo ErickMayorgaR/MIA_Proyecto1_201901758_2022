@@ -221,6 +221,7 @@ namespace yy {
       case symbol_kind::S_PATH: // "_PATH"
       case symbol_kind::S_SIZE: // "_SIZE"
       case symbol_kind::S_TYPE: // "_TYPE"
+      case symbol_kind::S_TYPE2: // "_TYPE2"
       case symbol_kind::S_DELETE: // "_DELETE"
       case symbol_kind::S_NAME: // "_NAME"
       case symbol_kind::S_ADD: // "_ADD"
@@ -236,7 +237,7 @@ namespace yy {
       case symbol_kind::S_USER: // "_USER"
       case symbol_kind::S_PWD: // "_PWD"
       case symbol_kind::S_GRP: // "_GRP"
-      case symbol_kind::S_TOUCH: // "_TOUCH"
+      case symbol_kind::S_MKFILE: // "_MKFILE"
       case symbol_kind::S_CHOWN: // "_CHOWN"
       case symbol_kind::S_CHMOD: // "_CHMOD"
       case symbol_kind::S_CAT: // "_CAT"
@@ -299,6 +300,7 @@ namespace yy {
       case symbol_kind::S_PATH: // "_PATH"
       case symbol_kind::S_SIZE: // "_SIZE"
       case symbol_kind::S_TYPE: // "_TYPE"
+      case symbol_kind::S_TYPE2: // "_TYPE2"
       case symbol_kind::S_DELETE: // "_DELETE"
       case symbol_kind::S_NAME: // "_NAME"
       case symbol_kind::S_ADD: // "_ADD"
@@ -314,7 +316,7 @@ namespace yy {
       case symbol_kind::S_USER: // "_USER"
       case symbol_kind::S_PWD: // "_PWD"
       case symbol_kind::S_GRP: // "_GRP"
-      case symbol_kind::S_TOUCH: // "_TOUCH"
+      case symbol_kind::S_MKFILE: // "_MKFILE"
       case symbol_kind::S_CHOWN: // "_CHOWN"
       case symbol_kind::S_CHMOD: // "_CHMOD"
       case symbol_kind::S_CAT: // "_CAT"
@@ -377,6 +379,7 @@ namespace yy {
       case symbol_kind::S_PATH: // "_PATH"
       case symbol_kind::S_SIZE: // "_SIZE"
       case symbol_kind::S_TYPE: // "_TYPE"
+      case symbol_kind::S_TYPE2: // "_TYPE2"
       case symbol_kind::S_DELETE: // "_DELETE"
       case symbol_kind::S_NAME: // "_NAME"
       case symbol_kind::S_ADD: // "_ADD"
@@ -392,7 +395,7 @@ namespace yy {
       case symbol_kind::S_USER: // "_USER"
       case symbol_kind::S_PWD: // "_PWD"
       case symbol_kind::S_GRP: // "_GRP"
-      case symbol_kind::S_TOUCH: // "_TOUCH"
+      case symbol_kind::S_MKFILE: // "_MKFILE"
       case symbol_kind::S_CHOWN: // "_CHOWN"
       case symbol_kind::S_CHMOD: // "_CHMOD"
       case symbol_kind::S_CAT: // "_CAT"
@@ -454,6 +457,7 @@ namespace yy {
       case symbol_kind::S_PATH: // "_PATH"
       case symbol_kind::S_SIZE: // "_SIZE"
       case symbol_kind::S_TYPE: // "_TYPE"
+      case symbol_kind::S_TYPE2: // "_TYPE2"
       case symbol_kind::S_DELETE: // "_DELETE"
       case symbol_kind::S_NAME: // "_NAME"
       case symbol_kind::S_ADD: // "_ADD"
@@ -469,7 +473,7 @@ namespace yy {
       case symbol_kind::S_USER: // "_USER"
       case symbol_kind::S_PWD: // "_PWD"
       case symbol_kind::S_GRP: // "_GRP"
-      case symbol_kind::S_TOUCH: // "_TOUCH"
+      case symbol_kind::S_MKFILE: // "_MKFILE"
       case symbol_kind::S_CHOWN: // "_CHOWN"
       case symbol_kind::S_CHMOD: // "_CHMOD"
       case symbol_kind::S_CAT: // "_CAT"
@@ -776,6 +780,7 @@ namespace yy {
       case symbol_kind::S_PATH: // "_PATH"
       case symbol_kind::S_SIZE: // "_SIZE"
       case symbol_kind::S_TYPE: // "_TYPE"
+      case symbol_kind::S_TYPE2: // "_TYPE2"
       case symbol_kind::S_DELETE: // "_DELETE"
       case symbol_kind::S_NAME: // "_NAME"
       case symbol_kind::S_ADD: // "_ADD"
@@ -791,7 +796,7 @@ namespace yy {
       case symbol_kind::S_USER: // "_USER"
       case symbol_kind::S_PWD: // "_PWD"
       case symbol_kind::S_GRP: // "_GRP"
-      case symbol_kind::S_TOUCH: // "_TOUCH"
+      case symbol_kind::S_MKFILE: // "_MKFILE"
       case symbol_kind::S_CHOWN: // "_CHOWN"
       case symbol_kind::S_CHMOD: // "_CHMOD"
       case symbol_kind::S_CAT: // "_CAT"
@@ -854,373 +859,379 @@ namespace yy {
           switch (yyn)
             {
   case 2: // INICIO: E "eof"
-#line 122 "parser.yy"
+#line 124 "parser.yy"
                   {return CommandHandler(x);}
-#line 860 "parser.tab.cc"
+#line 865 "parser.tab.cc"
     break;
 
   case 4: // STRING: "tk_string_d"
-#line 126 "parser.yy"
+#line 128 "parser.yy"
                       {yylhs.value.as < std::string > ()=yystack_[0].value.as < std::string > ().substr(1, yystack_[0].value.as < std::string > ().size() - 2);}
-#line 866 "parser.tab.cc"
+#line 871 "parser.tab.cc"
     break;
 
   case 5: // STRING: "tk_string_s"
-#line 127 "parser.yy"
+#line 129 "parser.yy"
                       {yylhs.value.as < std::string > ()=yystack_[0].value.as < std::string > ().substr(1, yystack_[0].value.as < std::string > ().size() - 2);}
-#line 872 "parser.tab.cc"
+#line 877 "parser.tab.cc"
     break;
 
   case 6: // DATA: STRING
-#line 130 "parser.yy"
+#line 132 "parser.yy"
              {yylhs.value.as < std::string > ()=yystack_[0].value.as < std::string > ();}
-#line 878 "parser.tab.cc"
+#line 883 "parser.tab.cc"
     break;
 
   case 7: // DATA: "tk_number"
-#line 131 "parser.yy"
+#line 133 "parser.yy"
                   {yylhs.value.as < std::string > ()=yystack_[0].value.as < std::string > ();}
-#line 884 "parser.tab.cc"
+#line 889 "parser.tab.cc"
     break;
 
   case 8: // DATA: "tk_path"
-#line 132 "parser.yy"
+#line 134 "parser.yy"
                 {yylhs.value.as < std::string > ()=yystack_[0].value.as < std::string > ();}
-#line 890 "parser.tab.cc"
+#line 895 "parser.tab.cc"
     break;
 
   case 9: // DATA: "tk_identifier"
-#line 133 "parser.yy"
+#line 135 "parser.yy"
                       {yylhs.value.as < std::string > ()=yystack_[0].value.as < std::string > ();}
-#line 896 "parser.tab.cc"
+#line 901 "parser.tab.cc"
     break;
 
   case 10: // DATA: "tk_pattern"
-#line 134 "parser.yy"
+#line 136 "parser.yy"
                    {yylhs.value.as < std::string > ()=yystack_[0].value.as < std::string > ();}
-#line 902 "parser.tab.cc"
+#line 907 "parser.tab.cc"
     break;
 
   case 16: // EXEC: "_exec" PARAMS
-#line 144 "parser.yy"
+#line 146 "parser.yy"
                      {x = newCommand("__EXEC",parameters);}
-#line 908 "parser.tab.cc"
+#line 913 "parser.tab.cc"
     break;
 
   case 17: // DISCOS: "_MKDISK" PARAMS
-#line 147 "parser.yy"
+#line 149 "parser.yy"
                          {x = newCommand("__MKDISK",parameters);}
-#line 914 "parser.tab.cc"
+#line 919 "parser.tab.cc"
     break;
 
   case 18: // DISCOS: "_RMDISK" PARAMS
-#line 148 "parser.yy"
+#line 150 "parser.yy"
                          {x = newCommand("__RMDISK",parameters);}
-#line 920 "parser.tab.cc"
+#line 925 "parser.tab.cc"
     break;
 
   case 19: // DISCOS: "_FDISK" PARAMS
-#line 149 "parser.yy"
+#line 151 "parser.yy"
                         {x = newCommand("__FDISK",parameters);}
-#line 926 "parser.tab.cc"
+#line 931 "parser.tab.cc"
     break;
 
   case 20: // DISCOS: "_MOUNT" PARAMS
-#line 150 "parser.yy"
+#line 152 "parser.yy"
                         {x = newCommand("__MOUNT",parameters);}
-#line 932 "parser.tab.cc"
+#line 937 "parser.tab.cc"
     break;
 
   case 21: // DISCOS: "_UMOUNT" PARAMS
-#line 151 "parser.yy"
+#line 153 "parser.yy"
                          {x = newCommand("__UMOUNT",parameters);}
-#line 938 "parser.tab.cc"
+#line 943 "parser.tab.cc"
     break;
 
   case 22: // DISCOS: "_MKFS" PARAMS
-#line 152 "parser.yy"
+#line 154 "parser.yy"
                        {x = newCommand("__MKFS",parameters);}
-#line 944 "parser.tab.cc"
+#line 949 "parser.tab.cc"
     break;
 
   case 23: // ADMIN_USERS_GROUPS: "_login" PARAMS
-#line 155 "parser.yy"
+#line 157 "parser.yy"
                                     {x = newCommand("__LOGIN",parameters);}
-#line 950 "parser.tab.cc"
+#line 955 "parser.tab.cc"
     break;
 
   case 24: // ADMIN_USERS_GROUPS: "_logout"
-#line 156 "parser.yy"
+#line 158 "parser.yy"
                               {x = newCommand("__LOGOUT",parameters);}
-#line 956 "parser.tab.cc"
+#line 961 "parser.tab.cc"
     break;
 
   case 25: // ADMIN_USERS_GROUPS: "_MKGRP" PARAMS
-#line 157 "parser.yy"
+#line 159 "parser.yy"
                                     {x = newCommand("__MKGRP",parameters);}
-#line 962 "parser.tab.cc"
+#line 967 "parser.tab.cc"
     break;
 
   case 26: // ADMIN_USERS_GROUPS: "_RMGRP" PARAMS
-#line 158 "parser.yy"
+#line 160 "parser.yy"
                                     {x = newCommand("__RMGRP",parameters);}
-#line 968 "parser.tab.cc"
+#line 973 "parser.tab.cc"
     break;
 
   case 27: // ADMIN_USERS_GROUPS: "_MKUSR" PARAMS
-#line 159 "parser.yy"
+#line 161 "parser.yy"
                                     {x = newCommand("__MKUSR",parameters);}
-#line 974 "parser.tab.cc"
+#line 979 "parser.tab.cc"
     break;
 
   case 28: // ADMIN_USERS_GROUPS: "_RMUSR" PARAMS
-#line 160 "parser.yy"
+#line 162 "parser.yy"
                                     {x = newCommand("__RMUSR",parameters);}
-#line 980 "parser.tab.cc"
+#line 985 "parser.tab.cc"
     break;
 
   case 29: // ADMIN_USERS_GROUPS: "_CHOWN" PARAMS
-#line 161 "parser.yy"
+#line 163 "parser.yy"
                                     {x = newCommand("__CHOWN",parameters);}
-#line 986 "parser.tab.cc"
+#line 991 "parser.tab.cc"
     break;
 
   case 30: // ADMIN_USERS_GROUPS: "_CHGRP" PARAMS
-#line 162 "parser.yy"
+#line 164 "parser.yy"
                                     {x = newCommand("__CHGRP",parameters);}
-#line 992 "parser.tab.cc"
+#line 997 "parser.tab.cc"
     break;
 
   case 31: // FILESYSTEM: "_CHMOD" PARAMS
-#line 165 "parser.yy"
+#line 167 "parser.yy"
                             {x = newCommand("__CHMOD",parameters);}
-#line 998 "parser.tab.cc"
+#line 1003 "parser.tab.cc"
     break;
 
-  case 32: // FILESYSTEM: "_TOUCH" PARAMS
-#line 166 "parser.yy"
-                              {x = newCommand("__TOUCH",parameters);}
-#line 1004 "parser.tab.cc"
+  case 32: // FILESYSTEM: "_MKFILE" PARAMS
+#line 168 "parser.yy"
+                               {x = newCommand("__MKFILE",parameters);}
+#line 1009 "parser.tab.cc"
     break;
 
   case 33: // FILESYSTEM: "_CAT" PARAMS
-#line 167 "parser.yy"
+#line 169 "parser.yy"
                             {x = newCommand("__CAT",parameters);}
-#line 1010 "parser.tab.cc"
+#line 1015 "parser.tab.cc"
     break;
 
   case 34: // FILESYSTEM: "_RM" PARAMS
-#line 168 "parser.yy"
+#line 170 "parser.yy"
                            {x = newCommand("__RM",parameters);}
-#line 1016 "parser.tab.cc"
+#line 1021 "parser.tab.cc"
     break;
 
   case 35: // FILESYSTEM: "_EDIT" PARAMS
-#line 169 "parser.yy"
+#line 171 "parser.yy"
                              {x = newCommand("__EDIT",parameters);}
-#line 1022 "parser.tab.cc"
+#line 1027 "parser.tab.cc"
     break;
 
   case 36: // FILESYSTEM: "_MKDIR" PARAMS
-#line 170 "parser.yy"
+#line 172 "parser.yy"
                               {x = newCommand("__MKDIR",parameters);}
-#line 1028 "parser.tab.cc"
+#line 1033 "parser.tab.cc"
     break;
 
   case 37: // FILESYSTEM: "_REN" PARAMS
-#line 171 "parser.yy"
+#line 173 "parser.yy"
                             {x = newCommand("__REN",parameters);}
-#line 1034 "parser.tab.cc"
+#line 1039 "parser.tab.cc"
     break;
 
   case 38: // FILESYSTEM: "_CP" PARAMS
-#line 172 "parser.yy"
+#line 174 "parser.yy"
                            {x = newCommand("__CP",parameters);}
-#line 1040 "parser.tab.cc"
+#line 1045 "parser.tab.cc"
     break;
 
   case 39: // FILESYSTEM: "_MV" PARAMS
-#line 173 "parser.yy"
+#line 175 "parser.yy"
                            {x = newCommand("__MV",parameters);}
-#line 1046 "parser.tab.cc"
+#line 1051 "parser.tab.cc"
     break;
 
   case 40: // FILESYSTEM: "_FIND" PARAMS
-#line 174 "parser.yy"
+#line 176 "parser.yy"
                              {x = newCommand("__FIND",parameters);}
-#line 1052 "parser.tab.cc"
+#line 1057 "parser.tab.cc"
     break;
 
   case 41: // FILESYSTEM: "_LOSS" PARAMS
-#line 175 "parser.yy"
+#line 177 "parser.yy"
                              {x = newCommand("__LOSS",parameters);}
-#line 1058 "parser.tab.cc"
+#line 1063 "parser.tab.cc"
     break;
 
   case 42: // FILESYSTEM: "_RECOVERY" PARAMS
-#line 176 "parser.yy"
+#line 178 "parser.yy"
                                  {x = newCommand("__RECOVERY",parameters);}
-#line 1064 "parser.tab.cc"
+#line 1069 "parser.tab.cc"
     break;
 
   case 43: // REPORT: "_rep" PARAMS
-#line 179 "parser.yy"
+#line 181 "parser.yy"
                       {x = newCommand("__REP",parameters);}
-#line 1070 "parser.tab.cc"
+#line 1075 "parser.tab.cc"
     break;
 
   case 44: // PARAMS: PARAMS PARAM "tk_EQUAL" DATA
-#line 182 "parser.yy"
+#line 184 "parser.yy"
                                      {parameters.push_back({yystack_[2].value.as < std::string > (), yystack_[0].value.as < std::string > ()});}
-#line 1076 "parser.tab.cc"
+#line 1081 "parser.tab.cc"
     break;
 
   case 45: // PARAMS: PARAMS BOOLEAN_PARAM
-#line 183 "parser.yy"
+#line 185 "parser.yy"
                              {parameters.push_back({yystack_[0].value.as < std::string > (), "true"});}
-#line 1082 "parser.tab.cc"
+#line 1087 "parser.tab.cc"
     break;
 
   case 46: // PARAMS: PARAM "tk_EQUAL" DATA
-#line 184 "parser.yy"
+#line 186 "parser.yy"
                               {parameters.clear(); parameters.push_back({yystack_[2].value.as < std::string > (), yystack_[0].value.as < std::string > ()});}
-#line 1088 "parser.tab.cc"
+#line 1093 "parser.tab.cc"
     break;
 
   case 47: // PARAMS: BOOLEAN_PARAM
-#line 185 "parser.yy"
+#line 187 "parser.yy"
                       {parameters.clear(); parameters.push_back({yystack_[0].value.as < std::string > (), "true"});}
-#line 1094 "parser.tab.cc"
+#line 1099 "parser.tab.cc"
     break;
 
   case 48: // PARAM: "_SIZE"
-#line 188 "parser.yy"
+#line 190 "parser.yy"
                {yylhs.value.as < std::string > () = "__SIZE";}
-#line 1100 "parser.tab.cc"
+#line 1105 "parser.tab.cc"
     break;
 
   case 49: // PARAM: "_FIT"
-#line 189 "parser.yy"
+#line 191 "parser.yy"
                {yylhs.value.as < std::string > () = "__FIT";}
-#line 1106 "parser.tab.cc"
+#line 1111 "parser.tab.cc"
     break;
 
   case 50: // PARAM: "_UNIT"
-#line 190 "parser.yy"
+#line 192 "parser.yy"
                 {yylhs.value.as < std::string > () = "__UNIT";}
-#line 1112 "parser.tab.cc"
+#line 1117 "parser.tab.cc"
     break;
 
   case 51: // PARAM: "_PATH"
-#line 191 "parser.yy"
+#line 193 "parser.yy"
                 {yylhs.value.as < std::string > () = "__PATH";}
-#line 1118 "parser.tab.cc"
+#line 1123 "parser.tab.cc"
     break;
 
   case 52: // PARAM: "_TYPE"
-#line 192 "parser.yy"
-                {yylhs.value.as < std::string > () = "__TYPE";}
-#line 1124 "parser.tab.cc"
-    break;
-
-  case 53: // PARAM: "_DELETE"
-#line 193 "parser.yy"
-                  {yylhs.value.as < std::string > () = "__DELETE";}
-#line 1130 "parser.tab.cc"
-    break;
-
-  case 54: // PARAM: "_NAME"
 #line 194 "parser.yy"
-                {yylhs.value.as < std::string > () = "__NAME";}
-#line 1136 "parser.tab.cc"
+                {yylhs.value.as < std::string > () = "__TYPE";}
+#line 1129 "parser.tab.cc"
     break;
 
-  case 55: // PARAM: "_ADD"
+  case 53: // PARAM: "_TYPE2"
 #line 195 "parser.yy"
-               {yylhs.value.as < std::string > () = "__ADD";}
-#line 1142 "parser.tab.cc"
+                 {yylhs.value.as < std::string > () = "__TYPE2";}
+#line 1135 "parser.tab.cc"
     break;
 
-  case 56: // PARAM: "_ID"
+  case 54: // PARAM: "_DELETE"
 #line 196 "parser.yy"
-              {yylhs.value.as < std::string > () = "__ID";}
-#line 1148 "parser.tab.cc"
+                  {yylhs.value.as < std::string > () = "__DELETE";}
+#line 1141 "parser.tab.cc"
     break;
 
-  case 57: // PARAM: "_FS"
+  case 55: // PARAM: "_NAME"
 #line 197 "parser.yy"
-              {yylhs.value.as < std::string > () = "__FS";}
-#line 1154 "parser.tab.cc"
+                {yylhs.value.as < std::string > () = "__NAME";}
+#line 1147 "parser.tab.cc"
     break;
 
-  case 58: // PARAM: "_RUTA"
+  case 56: // PARAM: "_ADD"
 #line 198 "parser.yy"
-                {yylhs.value.as < std::string > () = "__RUTA";}
-#line 1160 "parser.tab.cc"
+               {yylhs.value.as < std::string > () = "__ADD";}
+#line 1153 "parser.tab.cc"
     break;
 
-  case 59: // PARAM: "_USER"
+  case 57: // PARAM: "_ID"
 #line 199 "parser.yy"
-                {yylhs.value.as < std::string > () = "__USER";}
-#line 1166 "parser.tab.cc"
+              {yylhs.value.as < std::string > () = "__ID";}
+#line 1159 "parser.tab.cc"
     break;
 
-  case 60: // PARAM: "_PWD"
+  case 58: // PARAM: "_FS"
 #line 200 "parser.yy"
-               {yylhs.value.as < std::string > () = "__PWD";}
-#line 1172 "parser.tab.cc"
+              {yylhs.value.as < std::string > () = "__FS";}
+#line 1165 "parser.tab.cc"
     break;
 
-  case 61: // PARAM: "_GRP"
+  case 59: // PARAM: "_RUTA"
 #line 201 "parser.yy"
-               {yylhs.value.as < std::string > () = "__GRP";}
-#line 1178 "parser.tab.cc"
+                {yylhs.value.as < std::string > () = "__RUTA";}
+#line 1171 "parser.tab.cc"
     break;
 
-  case 62: // PARAM: "_UGO"
+  case 60: // PARAM: "_USER"
 #line 202 "parser.yy"
-               {yylhs.value.as < std::string > () = "__UGO";}
-#line 1184 "parser.tab.cc"
+                {yylhs.value.as < std::string > () = "__USER";}
+#line 1177 "parser.tab.cc"
     break;
 
-  case 63: // PARAM: "_CONT"
+  case 61: // PARAM: "_PWD"
 #line 203 "parser.yy"
-                {yylhs.value.as < std::string > () = "__CONT";}
-#line 1190 "parser.tab.cc"
+               {yylhs.value.as < std::string > () = "__PWD";}
+#line 1183 "parser.tab.cc"
     break;
 
-  case 64: // PARAM: "_FILEN"
+  case 62: // PARAM: "_GRP"
 #line 204 "parser.yy"
-                 {yylhs.value.as < std::string > () = "__FILEN";}
-#line 1196 "parser.tab.cc"
+               {yylhs.value.as < std::string > () = "__GRP";}
+#line 1189 "parser.tab.cc"
     break;
 
-  case 65: // PARAM: "_DEST"
+  case 63: // PARAM: "_UGO"
 #line 205 "parser.yy"
-                {yylhs.value.as < std::string > () = "__DEST";}
-#line 1202 "parser.tab.cc"
+               {yylhs.value.as < std::string > () = "__UGO";}
+#line 1195 "parser.tab.cc"
     break;
 
-  case 66: // BOOLEAN_PARAM: "_R"
+  case 64: // PARAM: "_CONT"
+#line 206 "parser.yy"
+                {yylhs.value.as < std::string > () = "__CONT";}
+#line 1201 "parser.tab.cc"
+    break;
+
+  case 65: // PARAM: "_FILEN"
+#line 207 "parser.yy"
+                 {yylhs.value.as < std::string > () = "__FILEN";}
+#line 1207 "parser.tab.cc"
+    break;
+
+  case 66: // PARAM: "_DEST"
 #line 208 "parser.yy"
+                {yylhs.value.as < std::string > () = "__DEST";}
+#line 1213 "parser.tab.cc"
+    break;
+
+  case 67: // BOOLEAN_PARAM: "_R"
+#line 211 "parser.yy"
                     {yylhs.value.as < std::string > () = "__R";}
-#line 1208 "parser.tab.cc"
+#line 1219 "parser.tab.cc"
     break;
 
-  case 67: // BOOLEAN_PARAM: "_P"
-#line 209 "parser.yy"
+  case 68: // BOOLEAN_PARAM: "_P"
+#line 212 "parser.yy"
                    {yylhs.value.as < std::string > () = "__R";}
-#line 1214 "parser.tab.cc"
+#line 1225 "parser.tab.cc"
     break;
 
-  case 68: // BOOLEAN_PARAM: "_STDIN"
-#line 210 "parser.yy"
+  case 69: // BOOLEAN_PARAM: "_STDIN"
+#line 213 "parser.yy"
                        {yylhs.value.as < std::string > () = "__STDIN";}
-#line 1220 "parser.tab.cc"
+#line 1231 "parser.tab.cc"
     break;
 
 
-#line 1224 "parser.tab.cc"
+#line 1235 "parser.tab.cc"
 
             default:
               break;
@@ -1572,24 +1583,24 @@ namespace yy {
   }
 
 
-  const signed char class_parser::yypact_ninf_ = -82;
+  const signed char class_parser::yypact_ninf_ = -83;
 
   const signed char class_parser::yytable_ninf_ = -1;
 
   const signed char
   class_parser::yypact_[] =
   {
-       0,   -82,    52,   -82,    52,    52,    52,    52,    52,    52,
-      52,    52,    52,    52,    52,    52,    52,    52,    52,    52,
-      52,    52,    52,    52,    52,    52,    52,    52,    52,    52,
-       4,     5,   -82,   -82,   -82,   -82,   -82,   -82,   -82,   -82,
-     -82,   -82,   -82,   -82,   -82,   -82,   -82,   -82,   -82,   -82,
-     -82,   -82,   -82,   -82,   -82,   -82,   -82,   -82,    52,     6,
-     -82,    52,    52,    52,    52,    52,    52,    52,    52,    52,
-      52,    52,    52,    52,    52,    52,    52,    52,    52,    52,
-      52,    52,    52,    52,    52,    52,    52,   -82,   -82,     7,
-     -82,   -50,   -50,   -82,   -82,   -82,   -82,   -82,   -82,   -82,
-     -82,   -82
+       0,   -83,    53,   -83,    53,    53,    53,    53,    53,    53,
+      53,    53,    53,    53,    53,    53,    53,    53,    53,    53,
+      53,    53,    53,    53,    53,    53,    53,    53,    53,    53,
+       4,     5,   -83,   -83,   -83,   -83,   -83,   -83,   -83,   -83,
+     -83,   -83,   -83,   -83,   -83,   -83,   -83,   -83,   -83,   -83,
+     -83,   -83,   -83,   -83,   -83,   -83,   -83,   -83,   -83,    53,
+       6,   -83,    53,    53,    53,    53,    53,    53,    53,    53,
+      53,    53,    53,    53,    53,    53,    53,    53,    53,    53,
+      53,    53,    53,    53,    53,    53,    53,    53,   -83,   -83,
+       7,   -83,   -51,   -51,   -83,   -83,   -83,   -83,   -83,   -83,
+     -83,   -83,   -83
   };
 
   const signed char
@@ -1599,103 +1610,103 @@ namespace yy {
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,    11,    12,    13,    14,    15,    49,    50,    51,
-      48,    52,    53,    54,    55,    56,    57,    59,    60,    61,
-      66,    64,    65,    67,    63,    62,    68,    58,    23,     0,
-      47,    25,    26,    27,    28,    30,    32,    29,    31,    33,
-      34,    35,    37,    39,    38,    36,    40,    41,    42,    17,
-      18,    19,    20,    21,    22,    16,    43,     1,     2,     0,
-      45,     0,     0,     4,     5,     8,     9,    10,     7,     6,
-      46,    44
+      48,    52,    53,    54,    55,    56,    57,    58,    60,    61,
+      62,    67,    65,    66,    68,    64,    63,    69,    59,    23,
+       0,    47,    25,    26,    27,    28,    30,    32,    29,    31,
+      33,    34,    35,    37,    39,    38,    36,    40,    41,    42,
+      17,    18,    19,    20,    21,    22,    16,    43,     1,     2,
+       0,    45,     0,     0,     4,     5,     8,     9,    10,     7,
+       6,    46,    44
   };
 
   const short
   class_parser::yypgoto_[] =
   {
-     -82,   -82,   -82,   -81,   -82,   -82,   -82,   -82,   -82,   -82,
-     151,    39,    68
+     -83,   -83,   -83,   -82,   -83,   -83,   -83,   -83,   -83,   -83,
+     153,    40,    69
   };
 
   const signed char
   class_parser::yydefgoto_[] =
   {
-       0,    30,    99,   100,    31,    32,    33,    34,    35,    36,
-      58,    59,    60
+       0,    30,   100,   101,    31,    32,    33,    34,    35,    36,
+      59,    60,    61
   };
 
   const signed char
   class_parser::yytable_[] =
   {
-       1,    93,    94,    95,    87,    88,    96,    97,    98,    91,
-      92,   101,     0,     0,     2,     3,     4,     5,     6,     7,
-       8,     0,     0,     0,     9,    10,    11,    12,    13,    14,
-      15,    16,    17,    18,    19,    20,    21,     0,     0,     0,
-       0,     0,     0,     0,     0,    22,    23,    24,    25,    26,
-      27,     0,     0,     0,    28,    29,    37,    38,    39,    40,
-      41,    42,    43,    44,    45,    46,     0,     0,     0,     0,
-       0,     0,     0,    47,    48,    49,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,     0,    50,
-      51,    52,    53,    54,    55,    56,    57,    89,     0,     0,
-      89,    89,    89,    89,    89,    89,    89,    89,    89,    89,
-      89,    89,    89,    89,    89,    89,    89,    89,    89,    89,
-      89,    89,    89,    89,    89,    89,    90,     0,     0,    90,
+       1,    94,    95,    96,    88,    89,    97,    98,    99,    92,
+      93,   102,     0,     0,     0,     2,     3,     4,     5,     6,
+       7,     8,     0,     0,     0,     9,    10,    11,    12,    13,
+      14,    15,    16,    17,    18,    19,    20,    21,     0,     0,
+       0,     0,     0,     0,     0,     0,    22,    23,    24,    25,
+      26,    27,     0,     0,     0,    28,    29,    37,    38,    39,
+      40,    41,    42,    43,    44,    45,    46,    47,     0,     0,
+       0,     0,     0,     0,     0,    48,    49,    50,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,    51,    52,    53,    54,    55,    56,    57,    58,    90,
+       0,     0,    90,    90,    90,    90,    90,    90,    90,    90,
       90,    90,    90,    90,    90,    90,    90,    90,    90,    90,
-      90,    90,    90,    90,    90,    90,    90,    90,    90,    90,
-      90,    90,    90,    90,    90,    61,    62,    63,    64,    65,
-      66,    67,    68,    69,    70,    71,    72,    73,    74,    75,
-      76,    77,    78,    79,    80,    81,    82,    83,    84,    85,
-      86
+      90,    90,    90,    90,    90,    90,    90,    90,    91,     0,
+       0,    91,    91,    91,    91,    91,    91,    91,    91,    91,
+      91,    91,    91,    91,    91,    91,    91,    91,    91,    91,
+      91,    91,    91,    91,    91,    91,    91,    62,    63,    64,
+      65,    66,    67,    68,    69,    70,    71,    72,    73,    74,
+      75,    76,    77,    78,    79,    80,    81,    82,    83,    84,
+      85,    86,    87
   };
 
   const signed char
   class_parser::yycheck_[] =
   {
-       0,    51,    52,    53,     0,     0,    56,    57,    58,     3,
-       3,    92,    -1,    -1,    14,    15,    16,    17,    18,    19,
-      20,    -1,    -1,    -1,    24,    25,    26,    27,    28,    29,
-      30,    31,    32,    33,    34,    35,    36,    -1,    -1,    -1,
-      -1,    -1,    -1,    -1,    -1,    45,    46,    47,    48,    49,
-      50,    -1,    -1,    -1,    54,    55,     4,     5,     6,     7,
-       8,     9,    10,    11,    12,    13,    -1,    -1,    -1,    -1,
-      -1,    -1,    -1,    21,    22,    23,    -1,    -1,    -1,    -1,
-      -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    37,
-      38,    39,    40,    41,    42,    43,    44,    58,    -1,    -1,
-      61,    62,    63,    64,    65,    66,    67,    68,    69,    70,
+       0,    52,    53,    54,     0,     0,    57,    58,    59,     3,
+       3,    93,    -1,    -1,    -1,    15,    16,    17,    18,    19,
+      20,    21,    -1,    -1,    -1,    25,    26,    27,    28,    29,
+      30,    31,    32,    33,    34,    35,    36,    37,    -1,    -1,
+      -1,    -1,    -1,    -1,    -1,    -1,    46,    47,    48,    49,
+      50,    51,    -1,    -1,    -1,    55,    56,     4,     5,     6,
+       7,     8,     9,    10,    11,    12,    13,    14,    -1,    -1,
+      -1,    -1,    -1,    -1,    -1,    22,    23,    24,    -1,    -1,
+      -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,
+      -1,    38,    39,    40,    41,    42,    43,    44,    45,    59,
+      -1,    -1,    62,    63,    64,    65,    66,    67,    68,    69,
+      70,    71,    72,    73,    74,    75,    76,    77,    78,    79,
+      80,    81,    82,    83,    84,    85,    86,    87,    59,    -1,
+      -1,    62,    63,    64,    65,    66,    67,    68,    69,    70,
       71,    72,    73,    74,    75,    76,    77,    78,    79,    80,
-      81,    82,    83,    84,    85,    86,    58,    -1,    -1,    61,
-      62,    63,    64,    65,    66,    67,    68,    69,    70,    71,
-      72,    73,    74,    75,    76,    77,    78,    79,    80,    81,
-      82,    83,    84,    85,    86,     4,     5,     6,     7,     8,
-       9,    10,    11,    12,    13,    14,    15,    16,    17,    18,
-      19,    20,    21,    22,    23,    24,    25,    26,    27,    28,
-      29
+      81,    82,    83,    84,    85,    86,    87,     4,     5,     6,
+       7,     8,     9,    10,    11,    12,    13,    14,    15,    16,
+      17,    18,    19,    20,    21,    22,    23,    24,    25,    26,
+      27,    28,    29
   };
 
   const signed char
   class_parser::yystos_[] =
   {
-       0,     0,    14,    15,    16,    17,    18,    19,    20,    24,
-      25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
-      35,    36,    45,    46,    47,    48,    49,    50,    54,    55,
-      60,    63,    64,    65,    66,    67,    68,     4,     5,     6,
-       7,     8,     9,    10,    11,    12,    13,    21,    22,    23,
-      37,    38,    39,    40,    41,    42,    43,    44,    69,    70,
-      71,    69,    69,    69,    69,    69,    69,    69,    69,    69,
-      69,    69,    69,    69,    69,    69,    69,    69,    69,    69,
-      69,    69,    69,    69,    69,    69,    69,     0,     0,    70,
-      71,     3,     3,    51,    52,    53,    56,    57,    58,    61,
-      62,    62
+       0,     0,    15,    16,    17,    18,    19,    20,    21,    25,
+      26,    27,    28,    29,    30,    31,    32,    33,    34,    35,
+      36,    37,    46,    47,    48,    49,    50,    51,    55,    56,
+      61,    64,    65,    66,    67,    68,    69,     4,     5,     6,
+       7,     8,     9,    10,    11,    12,    13,    14,    22,    23,
+      24,    38,    39,    40,    41,    42,    43,    44,    45,    70,
+      71,    72,    70,    70,    70,    70,    70,    70,    70,    70,
+      70,    70,    70,    70,    70,    70,    70,    70,    70,    70,
+      70,    70,    70,    70,    70,    70,    70,    70,     0,     0,
+      71,    72,     3,     3,    52,    53,    54,    57,    58,    59,
+      62,    63,    63
   };
 
   const signed char
   class_parser::yyr1_[] =
   {
-       0,    59,    60,    60,    61,    61,    62,    62,    62,    62,
-      62,    63,    63,    63,    63,    63,    64,    65,    65,    65,
-      65,    65,    65,    66,    66,    66,    66,    66,    66,    66,
-      66,    67,    67,    67,    67,    67,    67,    67,    67,    67,
-      67,    67,    67,    68,    69,    69,    69,    69,    70,    70,
-      70,    70,    70,    70,    70,    70,    70,    70,    70,    70,
-      70,    70,    70,    70,    70,    70,    71,    71,    71
+       0,    60,    61,    61,    62,    62,    63,    63,    63,    63,
+      63,    64,    64,    64,    64,    64,    65,    66,    66,    66,
+      66,    66,    66,    67,    67,    67,    67,    67,    67,    67,
+      67,    68,    68,    68,    68,    68,    68,    68,    68,    68,
+      68,    68,    68,    69,    70,    70,    70,    70,    71,    71,
+      71,    71,    71,    71,    71,    71,    71,    71,    71,    71,
+      71,    71,    71,    71,    71,    71,    71,    72,    72,    72
   };
 
   const signed char
@@ -1707,7 +1718,7 @@ namespace yy {
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     4,     2,     3,     1,     1,     1,
        1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     1,     1,     1,     1
+       1,     1,     1,     1,     1,     1,     1,     1,     1,     1
   };
 
 
@@ -1718,20 +1729,20 @@ namespace yy {
   const class_parser::yytname_[] =
   {
   "\"eof\"", "error", "\"invalid token\"", "\"tk_EQUAL\"", "\"_FIT\"",
-  "\"_UNIT\"", "\"_PATH\"", "\"_SIZE\"", "\"_TYPE\"", "\"_DELETE\"",
-  "\"_NAME\"", "\"_ADD\"", "\"_ID\"", "\"_FS\"", "\"_login\"",
-  "\"_logout\"", "\"_MKGRP\"", "\"_RMGRP\"", "\"_MKUSR\"", "\"_RMUSR\"",
-  "\"_CHGRP\"", "\"_USER\"", "\"_PWD\"", "\"_GRP\"", "\"_TOUCH\"",
-  "\"_CHOWN\"", "\"_CHMOD\"", "\"_CAT\"", "\"_RM\"", "\"_EDIT\"",
-  "\"_REN\"", "\"_MV\"", "\"_CP\"", "\"_MKDIR\"", "\"_FIND\"", "\"_LOSS\"",
-  "\"_RECOVERY\"", "\"_R\"", "\"_FILEN\"", "\"_DEST\"", "\"_P\"",
-  "\"_CONT\"", "\"_UGO\"", "\"_STDIN\"", "\"_RUTA\"", "\"_MKDISK\"",
-  "\"_RMDISK\"", "\"_FDISK\"", "\"_MOUNT\"", "\"_UMOUNT\"", "\"_MKFS\"",
-  "\"tk_string_d\"", "\"tk_string_s\"", "\"tk_path\"", "\"_exec\"",
-  "\"_rep\"", "\"tk_identifier\"", "\"tk_pattern\"", "\"tk_number\"",
-  "$accept", "INICIO", "STRING", "DATA", "E", "EXEC", "DISCOS",
-  "ADMIN_USERS_GROUPS", "FILESYSTEM", "REPORT", "PARAMS", "PARAM",
-  "BOOLEAN_PARAM", YY_NULLPTR
+  "\"_UNIT\"", "\"_PATH\"", "\"_SIZE\"", "\"_TYPE\"", "\"_TYPE2\"",
+  "\"_DELETE\"", "\"_NAME\"", "\"_ADD\"", "\"_ID\"", "\"_FS\"",
+  "\"_login\"", "\"_logout\"", "\"_MKGRP\"", "\"_RMGRP\"", "\"_MKUSR\"",
+  "\"_RMUSR\"", "\"_CHGRP\"", "\"_USER\"", "\"_PWD\"", "\"_GRP\"",
+  "\"_MKFILE\"", "\"_CHOWN\"", "\"_CHMOD\"", "\"_CAT\"", "\"_RM\"",
+  "\"_EDIT\"", "\"_REN\"", "\"_MV\"", "\"_CP\"", "\"_MKDIR\"", "\"_FIND\"",
+  "\"_LOSS\"", "\"_RECOVERY\"", "\"_R\"", "\"_FILEN\"", "\"_DEST\"",
+  "\"_P\"", "\"_CONT\"", "\"_UGO\"", "\"_STDIN\"", "\"_RUTA\"",
+  "\"_MKDISK\"", "\"_RMDISK\"", "\"_FDISK\"", "\"_MOUNT\"", "\"_UMOUNT\"",
+  "\"_MKFS\"", "\"tk_string_d\"", "\"tk_string_s\"", "\"tk_path\"",
+  "\"_exec\"", "\"_rep\"", "\"tk_identifier\"", "\"tk_pattern\"",
+  "\"tk_number\"", "$accept", "INICIO", "STRING", "DATA", "E", "EXEC",
+  "DISCOS", "ADMIN_USERS_GROUPS", "FILESYSTEM", "REPORT", "PARAMS",
+  "PARAM", "BOOLEAN_PARAM", YY_NULLPTR
   };
 #endif
 
@@ -1740,13 +1751,13 @@ namespace yy {
   const unsigned char
   class_parser::yyrline_[] =
   {
-       0,   122,   122,   123,   126,   127,   130,   131,   132,   133,
-     134,   137,   138,   139,   140,   141,   144,   147,   148,   149,
-     150,   151,   152,   155,   156,   157,   158,   159,   160,   161,
-     162,   165,   166,   167,   168,   169,   170,   171,   172,   173,
-     174,   175,   176,   179,   182,   183,   184,   185,   188,   189,
-     190,   191,   192,   193,   194,   195,   196,   197,   198,   199,
-     200,   201,   202,   203,   204,   205,   208,   209,   210
+       0,   124,   124,   125,   128,   129,   132,   133,   134,   135,
+     136,   139,   140,   141,   142,   143,   146,   149,   150,   151,
+     152,   153,   154,   157,   158,   159,   160,   161,   162,   163,
+     164,   167,   168,   169,   170,   171,   172,   173,   174,   175,
+     176,   177,   178,   181,   184,   185,   186,   187,   190,   191,
+     192,   193,   194,   195,   196,   197,   198,   199,   200,   201,
+     202,   203,   204,   205,   206,   207,   208,   211,   212,   213
   };
 
   void
@@ -1779,9 +1790,9 @@ namespace yy {
 
 #line 6 "parser.yy"
 } // yy
-#line 1783 "parser.tab.cc"
+#line 1794 "parser.tab.cc"
 
-#line 213 "parser.yy"
+#line 216 "parser.yy"
 
 void yy::class_parser::error(const location_type& lugar, const std::string& lexema)
 {

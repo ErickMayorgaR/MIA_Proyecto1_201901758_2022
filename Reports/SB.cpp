@@ -1,6 +1,7 @@
-
-
 #include "SB.h"
+#include "../Disks/DiskFunctions.h"
+
+
 
 SB::SB(ParticionesMontadas mounted) {
     this->mounted = mounted;

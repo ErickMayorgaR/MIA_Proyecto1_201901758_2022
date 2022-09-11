@@ -7,6 +7,9 @@
 #include <string.h>
 #include "../Utils/Functions.h"
 #include "../Disks/DiskFunctions.h"
+#include "../Utils/Variables.h"
+
+
 
 Login::Login(std::string user, std::string pwd, std::string id) {
     this->user = user;
@@ -55,7 +58,8 @@ void Login::executeLogin() {
     file = NULL;
 
     /* Obtener string con contenido del archivo*/
-    std::string content_file = ReadFile(1, super_bloque.s_inode_start, super_bloque.s_block_start, mounted.path);
+    std::string content_file = ReadFile(1, super_bloque.s_inode_start,
+                                        super_bloque.s_block_start, mounted.path);
 
     /* LEER LÍNEA POR LÍNEA EL ARCHIVO USERS.TXT */
     // std::cout << content_file << std::endl;

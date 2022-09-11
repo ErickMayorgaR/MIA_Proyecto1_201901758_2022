@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string.h>
 #include "../Utils/Functions.h"
+#include "../Utils/Variables.h"
+
 
 
 Chmod::Chmod(std::string path, std::string ugo, std::string r) {

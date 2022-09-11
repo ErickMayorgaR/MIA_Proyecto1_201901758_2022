@@ -1,9 +1,12 @@
 
-#include "Logout.h"
-
-
 #include "../Utils/AdminStructure.h"
 #include "../Utils/Functions.h"
+#include "Logout.h"
+#include "../Utils/Variables.h"
+
+
+
+
 
 Logout::Logout() {
     executeLogout();

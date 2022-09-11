@@ -8,7 +8,7 @@
 
 using std::string;
 
-struct Command {
+struct command {
     string keyword;
     string size;
     string fit;
@@ -41,8 +41,8 @@ struct parameter {
     string valor;
 };
 
-struct Command newCommand(string _type, std::vector<parameter> _params) {
-    struct Command parameter;
+static struct command newCommand(string _type, std::vector<parameter> _params) {
+    struct command parameter;
     parameter.keyword = _type;
     for (size_t i = 0; i < _params.size(); i++) {
         if (_params[i].tipo == "__SIZE")
@@ -58,6 +58,9 @@ struct Command newCommand(string _type, std::vector<parameter> _params) {
             parameter.path = _params[i].valor;
 
         else if (_params[i].tipo == "__TYPE")
+            parameter.type = _params[i].valor;
+
+        else if (_params[i].tipo == "__TYPE2")
             parameter.type = _params[i].valor;
 
         else if (_params[i].tipo == "__DELETE")

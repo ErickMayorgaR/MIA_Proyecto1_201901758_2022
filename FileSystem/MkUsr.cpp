@@ -3,6 +3,9 @@
 #include <iostream>
 #include <string.h>
 #include "../Utils/Functions.h"
+#include "../Utils/Variables.h"
+
+
 
 MkUsr::MkUsr(std::string user, std::string pwd, std::string grp) {
     this->user = user;

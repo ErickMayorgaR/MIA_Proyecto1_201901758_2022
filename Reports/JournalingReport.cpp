@@ -25,7 +25,7 @@ void JournalingReport::generateReport(std::string _path) {
 }
 
 
-void JournalingReport::addToReport(Command _tmp) {
+void JournalingReport::addToReport(command _tmp) {
     std::string dir = "../Results/journal.dot";
     bool x = true;
     if (!isDir(dir)) {
@@ -37,16 +37,16 @@ void JournalingReport::addToReport(Command _tmp) {
     std::ofstream f;
     f.open(dir, std::ios_base::app); // append instead of overwrite
     if (!x)
-        f << getBaseHeader();
+        f << getJournalingHeader();
 
     f << getDot(_tmp);
     f.close();
 }
 
 
-std::string JournalingReport::getDot(Command tmp) {
-    string dot =
-            string("<TR>\n") +
+std::string JournalingReport::getDot(command tmp) {
+    std::string dot =
+            std::string("<TR>\n") +
             "<TD HEIGHT=\"60\">" + tmp.keyword + "</TD>\n" +
             "<TD>" + tmp.size + "</TD>\n" +
             "<TD>" + tmp.path + "</TD>\n" +
@@ -65,7 +65,7 @@ std::string JournalingReport::getDot(Command tmp) {
     return dot;
 }
 
-string getHeader() {
+std::string JournalingReport::getJournalingHeader() {
     string grafo = getBaseHeader();
     grafo +=
             string("\"Journaling\" [margin=\"1\" label = <\n") +

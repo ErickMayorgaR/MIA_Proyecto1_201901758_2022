@@ -1,7 +1,9 @@
 #include "DiskFunctions.h"
 #include "../Utils/Structures.h"
+#include "../Utils/Variables.h"
 
-bool existLogicPartition(EBR _ebr, std::string _name, FILE *_file) {
+
+__attribute__((unused)) bool existLogicPartition(EBR _ebr, std::string _name, FILE *_file) {
     if (_ebr.part_name == _name) {
         return true;
     }
@@ -138,16 +140,16 @@ DiskId buildID(std::string _id) {
     DiskId disk_id;
     disk_id._carnet = _id.substr(0, 2);
     disk_id._number_id = std::stoi(_id.substr(2, 1));
-    disk_id._letter_id = _id[_id.length() - 1];
+    disk_id._disk_name_id = _id.substr(3);
 
     return disk_id;
 }
 
 int existMountedID(DiskId _disk_id) {
     for (int i = 0; i < particiones_montadas.size(); i++) {
-        MOUNTED mounted = particiones_montadas[i];
+        ParticionesMontadas mounted = particiones_montadas[i];
         if (mounted.id._carnet == _disk_id._carnet && mounted.id._number_id == _disk_id._number_id &&
-            mounted.id._letter_id == _disk_id._letter_id)
+            mounted.id._disk_name_id == _disk_id._disk_name_id)
             return i;
     }
     return -1;

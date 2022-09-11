@@ -4,6 +4,7 @@
 #include "../Utils/Functions.h"
 #include "Loss.h"
 #include "../Disks/DiskFunctions.h"
+#include "../Utils/Variables.h"
 
 
 
@@ -21,7 +22,7 @@ void Loss::executeLoss() {
 
     int index = existMountedID(disk_id);
     if (index == -1)
-        return coutError("No se encuentra ninguna partición montada con el id '" + _id + "'.", NULL);
+        return coutError("No se encuentra ninguna partición montada con el id '" + id + "'.", NULL);
     ParticionesMontadas mounted = particiones_montadas[index];
 
     return lossSystem(mounted);

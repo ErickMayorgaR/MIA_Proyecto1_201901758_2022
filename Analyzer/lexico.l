@@ -34,6 +34,7 @@ PATH_DIR \/.[^" "]+|{IDENTIFICADOR}"."{IDENTIFICADOR}
 {GUION}"path"          {return yy::class_parser::make_PATH(yytext, loc);}
 {GUION}"s"          {return yy::class_parser::make_SIZE(yytext, loc);}
 {GUION}"t"          {return yy::class_parser::make_TYPE(yytext, loc);}
+{GUION}"type"          {return yy::class_parser::make_TYPE2(yytext, loc);}
 {GUION}"delete"        {return yy::class_parser::make_DELETE(yytext, loc);}
 {GUION}"name"          {return yy::class_parser::make_NAME(yytext, loc);}
 {GUION}"add"           {return yy::class_parser::make_ADD(yytext, loc);}
@@ -61,7 +62,7 @@ PATH_DIR \/.[^" "]+|{IDENTIFICADOR}"."{IDENTIFICADOR}
 "rmusr"                 {return yy::class_parser::make_RMUSR(yytext, loc);}
 "chgrp"                 {return yy::class_parser::make_CHGRP(yytext, loc);}
 {GUION}("user"|"usr")  {return yy::class_parser::make_USER(yytext, loc);}
-{GUION}"pwd"           {return yy::class_parser::make_PWD(yytext, loc);}
+{GUION}"pass"           {return yy::class_parser::make_PWD(yytext, loc);}
 {GUION}"grp"           {return yy::class_parser::make_GRP(yytext, loc);}
 
 "chmod"                 {return yy::class_parser::make_CHMOD(yytext, loc);}
@@ -83,7 +84,7 @@ PATH_DIR \/.[^" "]+|{IDENTIFICADOR}"."{IDENTIFICADOR}
 {GUION}"r"             {return yy::class_parser::make_R(yytext, loc);}
 {GUION}"file"{NUMERO}  {return yy::class_parser::make_FILEN(yytext, loc);}
 {GUION}"p"             {return yy::class_parser::make_P(yytext, loc);}
-{GUION}"dest"          {return yy::class_parser::make_DEST(yytext, loc);}
+{GUION}"destino"          {return yy::class_parser::make_DEST(yytext, loc);}
 
 "pause"                 {
                           std::cout << "Ingrese cualquier tecla para continuar: ";

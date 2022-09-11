@@ -13,13 +13,16 @@ class JournalingReport {
 
     void generateReport(std::string _path);
 
-    void addToReport(Command _tmp);
+    void addToReport(command _tmp);
 
-    std::string getDot(Command tmp);
+    std::string getDot(command tmp);
+
+    std::string getJournalingHeader();
 
 
 
-};
+
+    };
 
 
 #endif //MIA_PROYECTO1_201901758_2S2022_JOURNALINGREPORT_H

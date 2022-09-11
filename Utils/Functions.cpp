@@ -4,16 +4,28 @@
 #include <cctype>
 #include <fstream>
 #include <cstdlib>
-#include <experimental/filesystem>
+#include <cstring>
+#include <cmath>
 #include "Functions.h"
 #include "Structures.h"
 #include "AdminStructure.h"
-
+#include <experimental/filesystem>
+#include "Variables.h"
 
 
 namespace fs = std::experimental::filesystem;
 
 
+
+
+
+std::string buildPath(std::string _path) {
+    std::string np = getPath(_path);
+    std::string dir = getDir(np);
+    if (!isDir(dir))                 // Check if path exists
+        fs::create_directories(dir); // create src folder
+    return np;
+}
 void coutError(std::string err, FILE *_file) {
     if (_file != NULL) {
         fclose(_file);
@@ -58,13 +70,6 @@ bool isDir(std::string dir) {
         return true;
 }
 
-std::string buildPath(std::string _path) {
-    std::string np = getPath(_path);
-    std::string dir = getDir(np);
-    if (!isDir(dir))                 // Check if path exists
-        fs::create_directories(dir); // create src folder
-    return np;
-}
 
 char getFit(std::string _fit, char _default) {
     char nf;
@@ -666,6 +671,13 @@ void editarArchivo(std::string _path, std::string _name, std::string _content) {
     fclose(file);
     file = NULL;
     // std::cout << "Se editó el archivo: " + _path + "/" + _name + "\n";
+}
+
+std::string getData(Group _group, User _user) {
+    std::string data =
+            std::to_string(_group.GID) + "," + _group.tipo + "," + _group.nombre + "\n" + std::to_string(_user.UID) +
+            "," + _user.tipo + "," + _user.grupo + "," + _user.nombre + "," + _user.contrasena + "\n";
+    return data;
 }
 
 

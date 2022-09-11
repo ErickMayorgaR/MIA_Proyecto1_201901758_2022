@@ -3,6 +3,8 @@
 #include <cstring>
 #include "../Utils/Functions.h"
 #include "Copy.h"
+#include "../Utils/Variables.h"
+
 
 
 Copy::Copy(std::string path, std::string dest) {

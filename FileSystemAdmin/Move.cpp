@@ -5,6 +5,7 @@
 #include <cstring>
 #include "../Utils/Functions.h"
 #include "Move.h"
+#include "../Utils/Variables.h"
 
 
 

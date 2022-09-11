@@ -29,7 +29,7 @@ class parser_driver;
 #include <vector>
 
 std::vector<parameter> parameters;
-struct Command x;
+struct command x;
 
 }
 %define api.token.prefix {TOK_}
@@ -41,6 +41,8 @@ struct Command x;
 %token <std::string> PATH "_PATH"
 %token <std::string> SIZE "_SIZE"
 %token <std::string> TYPE "_TYPE"
+%token <std::string> TYPE2 "_TYPE2"
+
 %token <std::string> DELETE "_DELETE"
 %token <std::string> NAME "_NAME"
 %token <std::string> ADD "_ADD"
@@ -190,6 +192,7 @@ PARAM: "_SIZE" {$$ = "__SIZE";}
       | "_UNIT" {$$ = "__UNIT";}
       | "_PATH" {$$ = "__PATH";}
       | "_TYPE" {$$ = "__TYPE";}
+      | "_TYPE2" {$$ = "__TYPE2";}
       | "_DELETE" {$$ = "__DELETE";}
       | "_NAME" {$$ = "__NAME";}
       | "_ADD" {$$ = "__ADD";}

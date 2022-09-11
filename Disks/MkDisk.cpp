@@ -1,18 +1,10 @@
 #include <iostream>
-#include <string.h>
-#include "../Utils/Structures.h"
+#include <cstring>
 #include "MkDisk.h"
 #include "../Utils/Functions.h"
+#include "../Utils/Variables.h"
 
 
-MkDisk::MkDisk(std::string path, std::string size, std::string fit, std::string unit) {
-    this->size = size;
-    this->path = path;
-    this->fit = fit;
-    this->unit = unit;
-    executeDisk();
-
-}
 
 
 void MkDisk::executeDisk() {
@@ -33,10 +25,12 @@ void MkDisk::executeDisk() {
 
 
 void MkDisk::createDisk() {
+    std::vector<ParticionesMontadas> pm = particiones_montadas;
     char charPath[_path.size() + 1];
     strcpy(charPath, _path.c_str());
     FILE *file = nullptr;
     file = fopen(charPath, "r");
+    pm = particiones_montadas;
     if (file != nullptr) {
         return coutError("Error: El disco ya existe.", file);
     }
@@ -65,6 +59,16 @@ void MkDisk::createDisk() {
     fwrite(&mbr, sizeof(MBR), 1, file);
     fclose(file);
     file = nullptr;
+}
+
+
+MkDisk::MkDisk(std::string path, std::string size, std::string fit, std::string unit) {
+    this->size = size;
+    this->path = path;
+    this->fit = fit;
+    this->unit = unit;
+    executeDisk();
+
 }
 
 

@@ -7,6 +7,7 @@
 #include "../Utils/AdminStructure.h"
 #include "../Utils/Functions.h"
 #include "Remove.h"
+#include "../Utils/Variables.h"
 
 
 Remove::Remove(std::string path) {

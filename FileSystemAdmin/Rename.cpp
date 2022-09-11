@@ -3,10 +3,10 @@
 //
 
 #include <cstring>
-
 #include "../Utils/Structures.h"
 #include "../Utils/Functions.h"
 #include "Rename.h"
+#include "../Utils/Variables.h"
 
 
 Rename::Rename(std::string path, std::string name) {

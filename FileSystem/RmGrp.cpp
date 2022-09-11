@@ -1,10 +1,10 @@
 
 #include "RmGrp.h"
-
-
 #include <iostream>
 #include <string.h>
 #include "../Utils/Functions.h"
+#include "../Utils/Variables.h"
+
 
 RmGrp::RmGrp(std::string name) {
     this->name = name;

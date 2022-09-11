@@ -3,6 +3,8 @@
 #include "../Utils/Functions.h"
 
 #include "Chown.h"
+#include "../Utils/Variables.h"
+
 
 
 Chown::Chown(std::string path, std::string user, std::string r) {

@@ -6,6 +6,7 @@
 #include "../Disks/DiskFunctions.h"
 #include "../Utils/Functions.h"
 #include "Recovery.h"
+#include "../Utils/Variables.h"
 
 
 Recovery::Recovery(std::string id) {
