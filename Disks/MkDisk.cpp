@@ -25,12 +25,11 @@ void MkDisk::executeDisk() {
 
 
 void MkDisk::createDisk() {
-    std::vector<ParticionesMontadas> pm = particiones_montadas;
+
     char charPath[_path.size() + 1];
     strcpy(charPath, _path.c_str());
     FILE *file = nullptr;
     file = fopen(charPath, "r");
-    pm = particiones_montadas;
     if (file != nullptr) {
         return coutError("Error: El disco ya existe.", file);
     }

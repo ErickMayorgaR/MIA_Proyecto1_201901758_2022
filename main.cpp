@@ -5,12 +5,14 @@
 #include <thread>
 #include "Analyzer/driver.h"
 #include <bits/stdc++.h>
+#include "Utils/Variables.h"
 
 
 void executeCommand(std::string path);
 void executeAnalyzer(std::string fileName);
 
 int main() {
+    number_id = 2;
     system("clear");
     std::string input, output;
     std::string filename = "command.txt";

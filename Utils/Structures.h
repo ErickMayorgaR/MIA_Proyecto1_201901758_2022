@@ -37,8 +37,8 @@ struct EBR {
 
 struct DiskId {
     std::string _carnet = "58";
-    int _number_id = 1;
-    std::string _disk_name_id = "";
+    int _number_id;
+    std::string _disk_name_id;
 };
 
 
@@ -51,7 +51,7 @@ struct ParticionesMontadas {
 };
 
 
-static int number_id;
+
 
 
 struct FolderReference {

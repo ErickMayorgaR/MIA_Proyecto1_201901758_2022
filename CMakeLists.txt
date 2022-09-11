@@ -13,7 +13,7 @@ set(Headers Utils/Functions.h Utils/Handler.h Utils/Structures.h Utils/Builder.h
         FileSystemAdmin/MkDir.h FileSystemAdmin/Copy.h Reports/ReportHandler.h Reports/Block.h Reports/MBRReport.h
         Reports/DiskReport.h Reports/BMBlock.h Reports/BMInode.h  Reports/Inode.h Reports/JournalingReport.h
         Reports/Tree.h Reports/SB.h Reports/FileReport.h Reports/LS.h FileSystem/Recovery.h FileSystem/Loss.h
-        Reports/ReportFunctions.h
+        Reports/ReportFunctions.h Utils/Variables.h
         )
 
 add_executable(MIA_Proyecto1_201901758_2s2022 main.cpp Analyzer/driver.cpp Analyzer/parser.tab.cc
@@ -30,5 +30,5 @@ add_executable(MIA_Proyecto1_201901758_2s2022 main.cpp Analyzer/driver.cpp Analy
         Reports/ReportHandler.cpp Reports/Block.cpp Reports/BMBlock.cpp Reports/BMInode.cpp
         Reports/DiskReport.cpp Reports/Inode.cpp Reports/JournalingReport.cpp Reports/Tree.cpp
         Reports/SB.cpp Reports/FileReport.cpp Reports/LS.cpp FileSystem/Recovery.cpp FileSystem/Loss.cpp
-        Reports/ReportFunctions.cpp Utils/Variables.h Utils/Variables.cpp)
+        Reports/ReportFunctions.cpp  Utils/Variables.cpp)
 

@@ -33,7 +33,7 @@ void Mount::mountPartition() {
     fread(&mbr, sizeof(MBR), 1, _file);
 
     char tipo = existPartition(mbr, name, _file);
-
+    int test = particiones_montadas.size();
     ParticionesMontadas _mounted;
     _mounted.id = assignID();
     _mounted.type = tipo;
@@ -61,6 +61,7 @@ void Mount::mountPartition() {
     particiones_montadas.push_back(_mounted);
 
     std::vector<ParticionesMontadas> pm = particiones_montadas;
+    int tam = number_id;
 
     if (tipo != 'E') {
         Superbloque sb;
@@ -82,22 +83,27 @@ void Mount::mountPartition() {
 
 
 DiskId Mount::assignID() {
+    int tam = particiones_montadas.size();
     ParticionesMontadas mounted;
-    DiskId tmp;
-    std::string name1 = path.substr(path.find_last_of('/') + 1);
+    struct DiskId tmp {};
+    std::string nameTemp = path.substr(path.find_last_of('/') + 1);
+
+    std::string cleanName = nameTemp.substr(0,nameTemp.size()-4);
+
+    tmp._disk_name_id = cleanName;
 
     for (int i = particiones_montadas.size() - 1; i >= 0; i--) {
         mounted = particiones_montadas[i];
         if (mounted.path == path) {
             tmp._number_id = mounted.id._number_id;
-            tmp._disk_name_id = name1;
+            tmp._number_id += 1;
             return tmp;
         }
     }
-    number_id += 1;
-    tmp._number_id = number_id;
+    tmp._number_id = 1;
     return tmp;
 }
+
 
 void Mount::printMOUNTED() {
     for (int i = 0; i < particiones_montadas.size(); i++) {
