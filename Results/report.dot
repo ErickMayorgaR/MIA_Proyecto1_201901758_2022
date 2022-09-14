@@ -1,0 +1,649 @@
+digraph G {
+graph[bgcolor="#141D26" margin=0]
+rankdir="TB";
+node [shape=plaintext fontname= "Ubuntu" fontsize="14"];
+edge [style="invis"];
+
+"Ls Report" [margin="1" label = <
+<TABLE BGCOLOR="#009999" BORDER="2" COLOR="BLACK" CELLBORDER="1" CELLSPACING="0">
+<TR>
+<TD HEIGHT="30" BGCOLOR="#B8860B" COLSPAN="8">LS REPORT</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="35" WIDTH="100" BGCOLOR="#708090"><B>Permisos</B></TD>
+<TD WIDTH="100" BGCOLOR="#708090"><B>Propietario</B></TD>
+<TD WIDTH="100" BGCOLOR="#708090"><B>Grupo</B></TD>
+<TD WIDTH="100" BGCOLOR="#708090"><B>Size<br/>(en bytes)</B></TD>
+<TD WIDTH="100" BGCOLOR="#708090"><B>Fecha y hora<br/>de creación</B></TD>
+<TD WIDTH="100" BGCOLOR="#708090"><B>Fecha y hora<br/>de modificación</B></TD>
+<TD WIDTH="100" BGCOLOR="#708090"><B>Tipo</B></TD>
+<TD WIDTH="100" BGCOLOR="#708090"><B>Nombre</B></TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">777</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>27</TD>
+<TD>    Tue Sep 13 19:31:04 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:04 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">700</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>80</TD>
+<TD>    Tue Sep 13 19:31:04 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:07 2022
+    </TD>
+<TD>Archivo</TD>
+<TD>users.txt</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:13 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:13 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/home</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:13 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:13 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/archivos</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:13 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/mia</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:13 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:47 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/fase2</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:18 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:18 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a1</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:19 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:19 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a2</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:19 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:19 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a3</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:20 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:20 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a4</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:20 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:20 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a5</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:20 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:20 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a6</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:47 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta2</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a1</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a2</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:16 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:16 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a3</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:16 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:16 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a4</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:16 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:16 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a5</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:17 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:17 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a6</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:17 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:17 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a7</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:17 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:17 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a8</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:18 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:18 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a9</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:18 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:18 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/a10</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/Esta</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/no</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/se</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/debe</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/crear</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/por</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:23 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/permisos</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/z</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:47 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta3</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta7</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta8</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta9</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta10</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:14 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta11</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta4</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta7</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta8</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta9</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta10</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta11</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta7</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta8</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta9</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta10</TD>
+</TR>
+
+<TR>
+<TD HEIGHT="60">664</TD>
+<TD>1</TD>
+<TD>1</TD>
+<TD>64</TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>    Tue Sep 13 19:31:15 2022
+    </TD>
+<TD>Carpeta</TD>
+<TD>/carpeta11</TD>
+</TR>
+
+</TABLE>>];
+}
