@@ -7,34 +7,34 @@
 
 
 
-MkDir::MkDir(std::string path, std::string p) {
-    executeMkDir(path, p);
-    created = true;
-}
+MkDir::MkDir() = default;
 
-
-void MkDir::executeMkDir(std::string path, std::string p) {
+bool MkDir::recursiveMkDir(std::string path, std::string p){
     if (path == "") {
-        created = false;
-        return coutError("Error: faltan parámetros obligatorios.", NULL);
+        coutError("Error: faltan parámetros obligatorios.", NULL);
+        return false;
     }
 
     if (!_user_logged.logged_in) {
-        created = false;
-        return coutError("Error: No se encuentra ninguna sesión activa.", NULL);
+        coutError("Error: No se encuentra ninguna sesión activa.", NULL);
+        return false;
     }
     std::string newPath = path.substr(0, path.find_last_of('/'));
     std::string name_folder = path.substr(path.find_last_of('/') + 1);
     if (name_folder.length() > 12) {
-        this->created = false;
-        return coutError("La longitud del nombre de la carpeta no debe exceder los 12 caracteres.", NULL);
+        coutError("La longitud del nombre de la carpeta no debe exceder los 12 caracteres.", NULL);
+        return false;
     }
-    bool _p = p != "";
-    createDirectory(newPath, name_folder, _p);
+    return createDirectory(newPath, name_folder, !p.empty());
+
+}
+
+void MkDir::executeMkDir(std::string path, std::string p) {
+    recursiveMkDir(path, p);
 }
 
 
-void MkDir::createDirectory(std::string path, std::string _name, bool _p) {
+bool MkDir::createDirectory(std::string path, std::string _name, bool _p) {
     /* CREACIÓN DE CARPETA */
     CarpetasBlock folder_to_create; // Nuevo bloque carpeta
     Content folder_content;         // Nuevo bloque contenido
@@ -64,27 +64,33 @@ void MkDir::createDirectory(std::string path, std::string _name, bool _p) {
     /* Lectura de la última carpeta padre */
     FolderReference fr;
     std::string pre_path = "";
-    std::vector <std::string> folders = SplitPath(path);
+    std::vector<std::string> folders = SplitPath(path);
+
     for (int i = 0; i < folders.size(); i++) {
-        fr = getFatherReference(fr, folders[i], file, super_bloque.s_inode_start, super_bloque.s_block_start);
-        /* Alguna carpeta padre no existe */
-        if (fr.inode == -1) {
-            if (!_p) {
-                this->created = false;
-                return coutError("Error: la ruta no existe y no se ha indicado el comando -p.", file);
+        if(file!= NULL) {
+            fr = getFatherReference(fr, folders[i], file, super_bloque.s_inode_start, super_bloque.s_block_start);
+            /* Alguna carpeta padre no existe */
+            if (fr.inode == -1) {
+                if (!_p) {
+
+                    coutError("Error: la ruta no existe y no se ha indicado el comando -p.", file);
+                    return false;
+                }
+                fclose(file);
+                file = NULL;
+                for (int j = i; j < folders.size(); j++) {
+                    pre_path += ("/" + folders[j]);
+                    // std::cout << pre_path << std::endl;
+                    bool status = recursiveMkDir(pre_path, "");
+                    if (!status) {
+                        coutError("Ha ocurrido un error", NULL);
+                        return false;
+                    }
+                }
+                return recursiveMkDir(path + "/" + _name, "");
             }
-            fclose(file);
-            file = NULL;
-            for (int j = i; j < folders.size(); j++) {
-                pre_path += ("/" + folders[j]);
-                // std::cout << pre_path << std::endl;
-                executeMkDir(pre_path, "");
-                if (!created)
-                    return coutError("Ha ocurrido un error", NULL);
-            }
-            executeMkDir(path + "/" + _name, "");
+            pre_path += ("/" + folders[i]);
         }
-        pre_path += ("/" + folders[i]);
     }
 
     /* Lectura del inodo de carpeta padre */
@@ -92,11 +98,14 @@ void MkDir::createDirectory(std::string path, std::string _name, bool _p) {
     fseek(file, super_bloque.s_inode_start, SEEK_SET);
     fseek(file, fr.inode * sizeof(InodosTable), SEEK_CUR);
     fread(&inode_father, sizeof(InodosTable), 1, file);
-    if (!HasPermission(_user_logged, inode_father, 2))
-        return coutError("El usuario no posee los permisos de escritura sobre la carpeta padre.", file);
+    if (!HasPermission(_user_logged, inode_father, 2)) {
+        coutError("El usuario no posee los permisos de escritura sobre la carpeta padre.", file);
+        return false;
+}
     if (fileExists(inode_father, _name, file, super_bloque.s_block_start)) {
-        this->created = false;
-        return coutError("La carpeta '" + _name + "' ya existe en la ruta: '" + path + "'.", file);
+
+        coutError("La carpeta '" + _name + "' ya existe en la ruta: '" + path + "'.", file);
+        return false;
     }
     /* Lectura del bloque de carpeta padre */
     CarpetasBlock folder_father;
@@ -161,8 +170,9 @@ void MkDir::createDirectory(std::string path, std::string _name, bool _p) {
         }
     }
     if (!cupo) {
-        this->created = false;
-        return coutError("No se encontró espacio disponible para crear la carpeta: " + path + "/" + _name, file);
+
+        coutError("No se encontró espacio disponible para crear la carpeta: " + path + "/" + _name, file);
+        return false;
     }
     fseek(file, super_bloque.s_inode_start, SEEK_SET);
     fseek(file, fr.inode * sizeof(InodosTable), SEEK_CUR);
@@ -215,9 +225,8 @@ void MkDir::createDirectory(std::string path, std::string _name, bool _p) {
     fwrite(&folder_to_create, 64, 1, file);
 
     fclose(file);
-    file = NULL;
     // std::cout << "Se creó la carpeta: " + _path + "/" + _name + "\n";
-    created = true;
+    return true;
 }
 
 

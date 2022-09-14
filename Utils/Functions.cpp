@@ -226,7 +226,7 @@ FolderReference getFatherReference(FolderReference _fr, std::string _folder, FIL
                     fseek(_file, _start_inodes, SEEK_SET);
                     fseek(_file, folder_block.b_content[j].b_inodo * sizeof(InodosTable), SEEK_CUR);
                     fread(&inode, sizeof(InodosTable), 1, _file);
-                    for (int k = 0; k < 15; k++) // Se podría evitar este paso
+                    for (int k = 0; k < 15; k++)
                     {
                         if (inode.i_block[k] != -1) {
                             fseek(_file, _start_blocks, SEEK_SET);

@@ -6,7 +6,7 @@
 
 RmDisk::RmDisk(std::string path) {
     this->path = path;
-
+    executeRmDisk();
 }
 
 

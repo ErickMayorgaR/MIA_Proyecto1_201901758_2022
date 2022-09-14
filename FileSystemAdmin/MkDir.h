@@ -9,17 +9,13 @@
 
 class MkDir {
 public:
-    MkDir(std::string path, std::string p);
-
-    std::string path;
-    std::string p;
-    bool created;
-
-
+    MkDir();
 
     void executeMkDir(std::string path, std::string p);
 
-    void createDirectory(std::string path, std::string _name, bool _p);
+    bool createDirectory(std::string path, std::string _name, bool _p);
+
+    bool recursiveMkDir(std::string path, std::string p);
 };
 
 #endif //MIA_PROYECTO1_201901758_2S2022_MKDIR_H

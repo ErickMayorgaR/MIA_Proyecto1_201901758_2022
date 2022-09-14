@@ -96,8 +96,8 @@ int CommandHandler(struct command x) {
         MkFile *mkFile = new MkFile(x.path, x.r, x.size, x.cont, x._stdin, false);
         int pre_t = mkFile->status;
         if (pre_t == 777) {
-            MkDir *mkDir = new MkDir((x.path).substr(0, x.path.find_last_of('/')), "true");
-            if (!mkDir->created) {
+            MkDir *mkDir = new MkDir();
+            if (!(mkDir->recursiveMkDir((x.path).substr(0, x.path.find_last_of('/')), "true"))) {
                 return 0;
             }
             MkFile *reMkFile = new MkFile(x.path, x.r, x.size, x.cont, x._stdin, false);
@@ -112,7 +112,8 @@ int CommandHandler(struct command x) {
     } else if (x.keyword == "__REN") {
         Rename *rename = new Rename(x.path, x.name);
     } else if (x.keyword == "__MKDIR") {
-        MkDir *mkDir = new MkDir(x.path, x.r);
+        MkDir *mkDir = new MkDir();
+        mkDir->executeMkDir(x.path, x.r);
     } else if (x.keyword == "__CP") {
         Copy *copy = new Copy(x.path, x.dest);
     } else if (x.keyword == "__MV") {
